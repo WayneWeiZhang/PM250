@@ -1,0 +1,5 @@
+#include "Pods-FRD3DBarChart.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/FRD3DBarChart" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/FRD3DBarChart"
+OTHER_LDFLAGS = -ObjC ${PODS_FRD_DBARCHART_OTHER_LDFLAGS}
+PODS_ROOT = ${SRCROOT}
