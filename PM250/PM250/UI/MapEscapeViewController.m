@@ -35,4 +35,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)addEscapeLines
+{
+    
+    for (CLLocation *location in self.destinationLocations)
+    {
+        CLLocationCoordinate2D coordinate = location.coordinate;
+        CLLocationCoordinate2D *coors[2];
+    }
+}
+
 @end
