@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-
+#import "JBBarChartViewController.h"
+#import "JBLineChartViewController.h"
 @interface ViewController ()
 
 @end
@@ -40,10 +41,11 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"Big3RevenueSegue"]) {
-//        Example4 *example = [[Example4 alloc] init];
-//        [segue.destinationViewController setFrd3dBarChartDelegate:example];
-//        [segue.destinationViewController setUseCylinders:YES];
+    if ([segue.identifier isEqualToString:@"JBBarChartViewControllerSegue"]) {
+        JBBarChartViewController *chartViewController = segue.destinationViewController;
+    }
+    else if ([segue.identifier isEqualToString:@"JBChartListViewControllerSegue"]) {
+        JBLineChartViewController *lineChartController = segue.destinationViewController;
     }
 }
 
