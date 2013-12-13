@@ -35,6 +35,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.userLocation = [[BMKUserLocation alloc] init];
+    self.userLocation.delegate = self;
+    
     self.mapView = [[BMKMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.showsUserLocation = YES;
 }
@@ -43,6 +46,8 @@
 {
     [super viewWillAppear:animated];
     
+    [self.userLocation startUserLocationService];
+    
     [self.mapView viewWillAppear];
     self.mapView.delegate = self;
 }
@@ -50,6 +55,8 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    
+    [self.userLocation stopUserLocationService];
     
     self.mapView.delegate = nil;
     [self.mapView viewWillDisappear];
@@ -63,12 +70,16 @@
 
 - (void)handleEnterBackground:(NSNotification *)notification
 {
+    [self.userLocation stopUserLocationService];
+    
     self.mapView.delegate = nil;
     [self.mapView viewWillDisappear];
 }
 
 - (void)handleEnterForeground:(NSNotification *)notification
 {
+    [self.userLocation startUserLocationService];
+    
     self.mapView.delegate = self;
     [self.mapView viewWillAppear];
 }

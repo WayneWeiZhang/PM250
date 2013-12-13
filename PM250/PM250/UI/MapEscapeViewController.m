@@ -37,12 +37,41 @@
 
 - (void)addEscapeLines
 {
-    
     for (CLLocation *location in self.destinationLocations)
     {
-        CLLocationCoordinate2D coordinate = location.coordinate;
-        CLLocationCoordinate2D *coors[2];
+        CLLocationCoordinate2D startCoor = self.userLocation.location.coordinate;
+        CLLocationCoordinate2D endCoor = location.coordinate;
+        CLLocationCoordinate2D coors[2] = {startCoor, endCoor};
+        BMKPolyline *line = [BMKPolyline polylineWithCoordinates:coors count:2];
+        [self.mapView addOverlay:line];
     }
+}
+
+- (void)addPointAnnotation
+{
+    for (CLLocation *location in self.destinationLocations)
+    {
+        BMKPointAnnotation *pointAnnotation = [[BMKPointAnnotation alloc] init];
+        CLLocationCoordinate2D coor = location.coordinate;
+        pointAnnotation.coordinate = coor;
+//        pointAnnotation.title = @"test";
+//        pointAnnotation.subtitle = @"此Annotation可拖拽!";
+        [self.mapView addAnnotation:pointAnnotation];
+    }
+    
+    BMKPointAnnotation *pointAnnotation = [[BMKPointAnnotation alloc] init];
+    CLLocationCoordinate2D coor = self.userLocation.location.coordinate;
+    pointAnnotation.coordinate = coor;
+    //        pointAnnotation.title = @"test";
+    //        pointAnnotation.subtitle = @"此Annotation可拖拽!";
+    [self.mapView addAnnotation:pointAnnotation];
+}
+
+- (void)viewDidGetLocatingUser:(CLLocationCoordinate2D)userLoc
+{
+    [self.mapView removeOverlays:self.mapView.overlays];
+    [self addPointAnnotation];
+    [self addEscapeLines];
 }
 
 @end
