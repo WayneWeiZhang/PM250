@@ -11,5 +11,6 @@
 
 #define kSocialShareAppKey          @"wnHv5gkoYCZAeYgVBiUm3Ql5"
 #define kWeiXinAppKey               @"wx703dd86403822f19"
+#define kBaiduMapAppKey             @"jpl2MVZZ4SQ0OpMSpdxk2EXw"
 
 #endif

@@ -15,6 +15,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [self initShareCenter];
+    
     return YES;
 }
 							
@@ -51,7 +53,7 @@
     return [BDSocialShareSDK_Internal handleOpenURL:url];
 }
 
-- (void) initShareCenter {
+- (void)initShareCenter {
     
     [BDSocialShareSDK_Internal registerApiKey:kSocialShareAppKey supportSharePlatforms:@[kBD_SOCIAL_SHARE_PLATFORM_SINAWEIBO, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_SESSION, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_TIMELINE, kBD_SOCIAL_SHARE_PLATFORM_EMAIL, kBD_SOCIAL_SHARE_PLATFORM_SMS]];
     
