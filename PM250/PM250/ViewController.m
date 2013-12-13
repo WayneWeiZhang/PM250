@@ -38,4 +38,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Big3RevenueSegue"]) {
+//        Example4 *example = [[Example4 alloc] init];
+//        [segue.destinationViewController setFrd3dBarChartDelegate:example];
+//        [segue.destinationViewController setUseCylinders:YES];
+    }
+}
+
 @end
