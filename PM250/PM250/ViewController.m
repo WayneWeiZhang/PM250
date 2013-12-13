@@ -10,7 +10,7 @@
 #import "JBBarChartViewController.h"
 #import "JBLineChartViewController.h"
 @interface ViewController ()
-
+@property (nonatomic, weak) JBBarChartViewController *containerViewController;
 @end
 
 @implementation ViewController
@@ -27,6 +27,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    NSLog(@"JBBarChartViewController %@", self.containerViewController);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -39,13 +40,18 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"JBBarChartViewControllerSegue"]) {
         JBBarChartViewController *chartViewController = segue.destinationViewController;
     }
     else if ([segue.identifier isEqualToString:@"JBChartListViewControllerSegue"]) {
         JBLineChartViewController *lineChartController = segue.destinationViewController;
+        
+    }
+    else if ([segue.identifier isEqualToString:@"BarChartChildViewControllerSegue"]) {
+        JBBarChartViewController *chartViewController = segue.destinationViewController;
+        self.containerViewController = chartViewController;
     }
 }
 
