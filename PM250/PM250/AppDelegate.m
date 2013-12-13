@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <BaiduSocialShare_Internal/BDSocialShareSDK_Internal.h>
+#import "CommonConfig.h"
 
 @implementation AppDelegate
 
@@ -41,6 +43,19 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [BDSocialShareSDK_Internal destroy];
+}
+
+- (BOOL)application:(__unused UIApplication *)application openURL:(NSURL *)url sourceApplication:(__unused NSString *)sourceApplication annotation:(__unused id)annotation {
+    
+    return [BDSocialShareSDK_Internal handleOpenURL:url];
+}
+
+- (void) initShareCenter {
+    
+    [BDSocialShareSDK_Internal registerApiKey:kSocialShareAppKey supportSharePlatforms:@[kBD_SOCIAL_SHARE_PLATFORM_SINAWEIBO, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_SESSION, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_TIMELINE, kBD_SOCIAL_SHARE_PLATFORM_EMAIL, kBD_SOCIAL_SHARE_PLATFORM_SMS]];
+    
+    [BDSocialShareSDK_Internal registerWXApp:kWeiXinAppKey];
 }
 
 @end
