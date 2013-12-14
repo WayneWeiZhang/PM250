@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AHBaseModel.h"
 
-@interface CityModel : NSObject
+@interface CityModel : AHBaseModel
 
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *ename;
 @property (copy, nonatomic) NSNumber *lat;
 @property (copy, nonatomic) NSNumber *lng;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
