@@ -44,7 +44,10 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 - (void)initFakeData;
 @end
 
-@implementation DetailChartViewController
+@implementation DetailChartViewController {
+    UIView *_backgroundView;
+}
+
 - (NSArray *)validateDataArrayFromArray:(NSArray *)dataArray {
     NSIndexSet *indexes = [dataArray indexesOfObjectsWithOptions:NSEnumerationConcurrent
                                                      passingTest:^BOOL(CityModel *model, NSUInteger idx, BOOL *stop) {
@@ -97,6 +100,8 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
         NSLog(@"model en_name %@", model.ename);
         NSLog(@"model PM250 %@", model.pm2_5);
     }
+    [self.chartData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    }];
 }
 
 - (void)reloadData {
@@ -107,15 +112,21 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     
 }
 
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 #pragma mark - View Lifecycle
 
 - (void)loadView
 {
     [super loadView];
     
+    _backgroundView = [[UIView alloc] initWithFrame:(CGRect) {.origin.x = 0.0f, .origin.y = 64.0f, .size.width = CGRectGetWidth(self.view.frame), .size.height = CGRectGetHeight(self.view.frame) - 64.0f}];
+    _backgroundView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_backgroundView];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.barChartView = [[JBBarChartView alloc] initWithFrame:CGRectMake(kDetailNumericDefaultPadding + 20.0f, kDetailNumericDefaultPadding + 198.0f, self.view.bounds.size.width - (kDetailNumericDefaultPadding * 2), kDetailChartViewControllerChartHeight)];
+    self.barChartView = [[JBBarChartView alloc] initWithFrame:CGRectMake(kDetailNumericDefaultPadding + 20.0f, kDetailNumericDefaultPadding + 134.0f, self.view.bounds.size.width - (kDetailNumericDefaultPadding * 2), kDetailChartViewControllerChartHeight)];
     self.barChartView.delegate = self;
     self.barChartView.dataSource = self;
     self.barChartView.headerPadding = kDetailChartViewControllerChartHeaderPadding;
@@ -131,7 +142,7 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     
     self.barChartView.transform = CGAffineTransformMakeRotation(M_PI_2);
     
-    [self.view addSubview:self.barChartView];
+    [_backgroundView addSubview:self.barChartView];
     [self.barChartView reloadData];
 }
 
