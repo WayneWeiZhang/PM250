@@ -17,23 +17,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYS-db-L2h">
-                                <rect key="frame" x="127" y="65" width="66" height="30"/>
+                                <rect key="frame" x="251" y="60" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Bar Chart">
+                                <state key="normal" title="排名">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="gld-0u-0cl" kind="push" identifier="JBBarChartViewControllerSegue" id="xgb-k6-dKY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sZ-JK-0bT">
-                                <rect key="frame" x="122" y="94" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Line Chart">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="wYf-Lx-eHO" kind="push" identifier="JBChartListViewControllerSegue" id="sLu-ka-lxM"/>
                                 </connections>
                             </button>
                             <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FbE-Hj-4WU">
@@ -45,25 +35,22 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqq-Yn-jBY">
-                                <rect key="frame" x="137" y="121" width="54" height="30"/>
+                                <rect key="frame" x="251" y="224" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Change">
+                                <state key="normal" title="模式切换">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="bl_changeData:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="90c-cA-CYx"/>
+                                    <action selector="bl_changeData:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="yns-id-rq0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzU-QB-APg">
-                                <rect key="frame" x="142" y="173" width="31" height="30"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PM2.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLI-N6-zim">
+                                <rect key="frame" x="105" y="98" width="110" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Map">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="QEK-Td-q7l" kind="push" identifier="MapEscapeViewControllerSegue" id="Ze5-9X-SfT"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -90,11 +77,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMd-HR-vDe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1934" y="687"/>
+            <point key="canvasLocation" x="1934" y="797"/>
         </scene>
         <!--Map Escape View Controller-->
         <scene sceneID="02U-1i-FXp">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GUj-0W-inN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController restorationIdentifier="MapEscapeViewController" storyboardIdentifier="MapEscapeViewController" id="QEK-Td-q7l" customClass="MapEscapeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="352-5a-BuM"/>
@@ -103,18 +91,38 @@
                     <view key="view" contentMode="scaleToFill" id="Y7p-Bz-aGe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hA9-Jf-rEF">
+                                <rect key="frame" x="0.0" y="21" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="5Ak-3r-yXI">
+                                        <nil key="title"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="qPO-Bl-0BJ"/>
+                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="L0Z-hq-i0m">
+                                            <rect key="frame" x="120" y="8" width="81" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="全国"/>
+                                                <segment title="好友"/>
+                                            </segments>
+                                        </segmentedControl>
+                                        <barButtonItem key="rightBarButtonItem" title="分享" id="GcI-Uo-JQX"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="f8W-OD-4Ve"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GUj-0W-inN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1364" y="816"/>
+            <point key="canvasLocation" x="1934" y="71"/>
         </scene>
-        <!--Bar Chart View Controller-->
+        <!--View Controller-->
         <scene sceneID="OVH-LL-wQf">
             <objects>
-                <viewController restorationIdentifier="JBBarChartViewController" storyboardIdentifier="JBBarChartViewController" id="gld-0u-0cl" customClass="JBBarChartViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="DetailViewController" storyboardIdentifier="DetailViewController" id="gld-0u-0cl" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OBF-oN-sR1"/>
                         <viewControllerLayoutGuide type="bottom" id="4dd-C6-k6k"/>
@@ -122,13 +130,49 @@
                     <view key="view" contentMode="scaleToFill" id="BZM-Wj-CfW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Demo_pic" translatesAutoresizingMaskIntoConstraints="NO" id="Ql9-I7-Jje">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="avo-9o-FAi">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="e8q-PQ-6su">
+                                        <nil key="title"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Gnq-9s-Jd8"/>
+                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="E1a-p4-snM">
+                                            <rect key="frame" x="120" y="8" width="81" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="全国"/>
+                                                <segment title="好友"/>
+                                            </segments>
+                                        </segmentedControl>
+                                        <barButtonItem key="rightBarButtonItem" title="分享" id="b5g-ey-4IX"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1z-IQ-KbY">
+                                <rect key="frame" x="245" y="524" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="地图模式">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="QEK-Td-q7l" kind="modal" modalTransitionStyle="flipHorizontal" id="4U3-E4-B2n"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="yYv-93-Dg2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HP9-gI-IED" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1934" y="-524"/>
+            <point key="canvasLocation" x="1934" y="-648"/>
         </scene>
         <!--Bar Chart View Controller-->
         <scene sceneID="yBg-o5-JTc">
@@ -147,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDf-1l-Hvt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1934" y="175"/>
+            <point key="canvasLocation" x="1182" y="-323"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8cA-lI-QfA">
@@ -168,6 +212,9 @@
             <point key="canvasLocation" x="767" y="71"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Demo_pic" width="159" height="141"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

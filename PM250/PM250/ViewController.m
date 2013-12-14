@@ -46,11 +46,11 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"JBBarChartViewControllerSegue"]) {
-        JBBarChartViewController *chartViewController = segue.destinationViewController;
+//        JBBarChartViewController *chartViewController = segue.destinationViewController;
         //TODO: SET chartViewController DATA
     }
     else if ([segue.identifier isEqualToString:@"JBChartListViewControllerSegue"]) {
-        JBLineChartViewController *lineChartController = segue.destinationViewController;
+//        JBLineChartViewController *lineChartController = segue.destinationViewController;
         //TODO: SET lineChartController DATA
         
     }
