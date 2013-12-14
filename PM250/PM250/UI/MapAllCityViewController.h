@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) NSArray *destinations;    //  object is cityModel
 
+- (void)addCircles;
+
 @end

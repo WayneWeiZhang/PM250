@@ -12,7 +12,6 @@
 #import "JBChartHeaderView.h"
 #import "JBBarChartFooterView.h"
 #import "JBChartInformationView.h"
-#import "MapAllCityViewController.h"
 #import "MapFriendsViewController.h"
 #import "GLobalDataManager.h"
 #import "CityModel.h"
@@ -40,7 +39,8 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 @property (nonatomic, strong) JBChartInformationView *informationView;
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *rightBarButton;
-@property (nonatomic, weak) MapAllCityViewController *allCityViewController;
+//@property (nonatomic, weak) MapAllCityViewController *allCityViewController;
+@property (nonatomic, weak) MapFriendsViewController *mapViewController;
 @property (nonatomic, copy) NSArray *countryDataArray;
 @property (nonatomic, copy) NSArray *friendsDataArray;
 // Buttons
@@ -88,27 +88,44 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 }
 
 - (IBAction)segmentDidSelect:(UISegmentedControl *)sender {
-    if (sender.selectedSegmentIndex == 0) {
-        self.chartData = self.countryDataArray;
+    if ([self.rightBarButton.title isEqualToString:@"地图"])
+    {
+        if (sender.selectedSegmentIndex == 0) {
+            self.chartData = self.countryDataArray;
+        }
+        else {
+            self.chartData = self.friendsDataArray;
+        }
+        [self configureContentLabels];
+        [self.barChartView reloadData];
+        [self.barChartView setState:JBChartViewStateCollapsed];
+        [self.barChartView setState:JBChartViewStateExpanded animated:YES callback:nil];
     }
-    else {
-        self.chartData = self.friendsDataArray;
+    else
+    {
+        if (sender.selectedSegmentIndex == 0)
+        {
+            self.mapViewController.type = MapFriendsViewControllerTypeCity;
+            [self.mapViewController refresh];
+        }
+        else
+        {
+            self.mapViewController.type = MapFriendsViewControllerTypeFriends;
+            [self.mapViewController refresh];
+        }
     }
-    [self configureContentLabels];
-    [self.barChartView reloadData];
-    [self.barChartView setState:JBChartViewStateCollapsed];
-    [self.barChartView setState:JBChartViewStateExpanded animated:YES callback:nil];
+    
 }
 
 - (IBAction)rightButtonDidTap:(UIBarButtonItem *)button {
     if ([button.title isEqualToString:@"地图"]) {
         self.backgroundView.hidden = YES;
-        self.allCityViewController.view.hidden = NO;
+        self.mapViewController.view.hidden = NO;
         [button setTitle:@"列表"];
     }
     else {
         self.backgroundView.hidden = NO;
-        self.allCityViewController.view.hidden = YES;
+        self.mapViewController.view.hidden = YES;
         [button setTitle:@"地图"];
     }
 }
@@ -223,7 +240,7 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.allCityViewController.view.hidden = YES;
+    self.mapViewController.view.hidden = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -303,11 +320,11 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"MapAllCityViewControllerSegue"])
+    if ([segue.identifier isEqualToString:@"MapFriendsViewControllerSegue"])
     {
-        MapAllCityViewController *vc = segue.destinationViewController;
-        vc.destinations = [GLobalDataManager sharedInstance].cityList;
-        self.allCityViewController = vc;
+        MapFriendsViewController *vc = segue.destinationViewController;
+//        vc.destinations = [GLobalDataManager sharedInstance].cityList;
+        self.mapViewController = vc;
     }
 }
 
