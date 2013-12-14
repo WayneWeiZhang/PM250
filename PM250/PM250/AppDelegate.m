@@ -10,13 +10,10 @@
 #import <BaiduSocialShare_Internal/BDSocialShareSDK_Internal.h>
 #import "CommonConfig.h"
 #import "BMapKit.h"
-<<<<<<< HEAD
 #import "AHCityListRequest.h"
 #import "GTMBase64.h"
 #import "AHRegisterRequest.h"
-=======
 #import "AHHistoryRequest.h"
->>>>>>> 5123c9f67ba7c4c427709284cd3c56372dc818a0
 
 @interface AppDelegate () <BMKGeneralDelegate>
 
