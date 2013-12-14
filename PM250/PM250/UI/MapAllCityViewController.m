@@ -8,6 +8,7 @@
 
 #import "MapAllCityViewController.h"
 #import "CityModel.h"
+#import "GLobalDataManager.h"
 
 @interface MapAllCityViewController ()
 
@@ -28,6 +29,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.destinations = [GLobalDataManager sharedInstance].cityList;
     [self addCircles];
 }
 

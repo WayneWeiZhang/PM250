@@ -7,6 +7,7 @@
 //
 
 #import "FakeDataGenerator.h"
+#import "GLobalDataManager.h"
 
 @implementation FakeDataGenerator
 
@@ -32,10 +33,12 @@
 //lat: "36.067082",
 //lng: "120.38264"
     
-    NSArray *cityNames = @[@"北京", @"成都", @"广州", @"青岛"];
-    NSArray *cityENames = @[@"beijing", @"chengdu", @"guangzhou", @"qingdao"];
-    NSArray *lats = @[@(39.90403), @(30.572269), @(23.129163), @(36.067082)];
-    NSArray *lngs = @[@(116.407526), @(104.066541), @(113.264435), @(120.38264)];
+//    "name" : "上海", "ename" : "shanghai", "lat" : "31.230416", "lng" : "121.473701" }
+    
+    NSArray *cityNames = @[@"北京", @"成都", @"广州", @"青岛", @"上海"];
+    NSArray *cityENames = @[@"beijing", @"chengdu", @"guangzhou", @"qingdao", @"shanghai"];
+    NSArray *lats = @[@(39.90403), @(30.572269), @(23.129163), @(36.067082), @(31.230416)];
+    NSArray *lngs = @[@(116.407526), @(104.066541), @(113.264435), @(120.38264), @(121.473701)];
     
     NSMutableArray *tmpArray = [NSMutableArray array];
     for (int i = 0; i < [cityENames count]; ++i)
@@ -52,6 +55,31 @@
         friendModel.imageUrl = [NSURL URLWithString:@"http://www.baidu.com/img/bdlogo.gif"];
         
         [tmpArray addObject:friendModel];
+    }
+    
+    NSArray *citys = [GLobalDataManager sharedInstance].cityList;
+    for (CityModel *model in citys)
+    {
+        if ([model.name isEqualToString:@"北京"])
+        {
+            [tmpArray[0] setValue:model.pm2_5 forKey:@"pm2_5"];
+        }
+        else if ([model.name isEqualToString:@"成都"])
+        {
+            [tmpArray[1] setValue:model.pm2_5 forKey:@"pm2_5"];
+        }
+        else if ([model.name isEqualToString:@"广州"])
+        {
+            [tmpArray[2] setValue:model.pm2_5 forKey:@"pm2_5"];
+        }
+        else if ([model.name isEqualToString:@"青岛"])
+        {
+            [tmpArray[3] setValue:model.pm2_5 forKey:@"pm2_5"];
+        }
+        else if ([model.name isEqualToString:@"上海"])
+        {
+            [tmpArray[4] setValue:model.pm2_5 forKey:@"pm2_5"];
+        }
     }
     
     return tmpArray;
