@@ -14,6 +14,9 @@
 @end
 
 @implementation ViewController
+- (IBAction)bl_changeData:(id)sender {
+    [self.containerViewController reloadData];
+}
 
 - (void)viewDidLoad
 {
@@ -44,9 +47,11 @@
 {
     if ([segue.identifier isEqualToString:@"JBBarChartViewControllerSegue"]) {
         JBBarChartViewController *chartViewController = segue.destinationViewController;
+        //TODO: SET chartViewController DATA
     }
     else if ([segue.identifier isEqualToString:@"JBChartListViewControllerSegue"]) {
         JBLineChartViewController *lineChartController = segue.destinationViewController;
+        //TODO: SET lineChartController DATA
         
     }
     else if ([segue.identifier isEqualToString:@"BarChartChildViewControllerSegue"]) {
