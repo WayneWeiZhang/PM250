@@ -37,6 +37,7 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 @property (nonatomic, strong) JBBarChartView *barChartView;
 @property (nonatomic, strong) JBChartInformationView *informationView;
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *rightBarButton;
 @property (nonatomic, weak) MapAllCityViewController *allCityViewController;
 // Buttons
 - (void)chartToggleButtonPressed:(id)sender;
@@ -49,6 +50,18 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 - (IBAction)toMapMode:(id)sender {
     self.backgroundView.hidden = YES;
     self.allCityViewController.view.hidden = NO;
+}
+- (IBAction)rightButtonDidTap:(UIBarButtonItem *)button {
+    if ([button.title isEqualToString:@"地图"]) {
+        self.backgroundView.hidden = YES;
+        self.allCityViewController.view.hidden = NO;
+        [button setTitle:@"列表"];
+    }
+    else {
+        self.backgroundView.hidden = NO;
+        self.allCityViewController.view.hidden = YES;
+        [button setTitle:@"地图"];
+    }
 }
 
 - (NSArray *)validateDataArrayFromArray:(NSArray *)dataArray {
