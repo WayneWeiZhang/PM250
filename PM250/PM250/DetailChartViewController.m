@@ -17,6 +17,8 @@
 #import "CityModel.h"
 #import "FriendModel.h"
 #import "FakeDataGenerator.h"
+#import <BaiduSocialShare_Internal/BDSocialShareSDK_Internal.h>
+
 // Numerics
 CGFloat const kDetailChartViewControllerChartHeight = 300.0f;
 CGFloat const kDetailChartViewControllerChartHeaderHeight = 80.0f;
@@ -192,7 +194,10 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 }
 
 - (IBAction)share:(id)sender {
-    
+    BDSocialShareContent *content = [BDSocialShareContent shareContentWithDescription:@"dhfsjkgjdhf" url:@"http://www.baidu.com" title:@"AirHit"];
+    [BDSocialShareSDK_Internal showShareMenuWithShareContent:content displayPlatforms:@[kBD_SOCIAL_SHARE_PLATFORM_SINAWEIBO, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_SESSION, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_TIMELINE, kBD_SOCIAL_SHARE_PLATFORM_EMAIL] supportedInterfaceOrientations:UIInterfaceOrientationMaskPortrait isStatusBarHidden:NO targetViewForPad:nil result:^(BD_SOCIAL_RESULT requestResult, NSString *platformType, id response, NSError *error) {
+        
+    }];
 }
 
 - (IBAction)back:(id)sender {
