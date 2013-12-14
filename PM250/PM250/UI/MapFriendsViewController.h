@@ -9,8 +9,8 @@
 #import "MapBaseViewController.h"
 #import "MapAllCityViewController.h"
 
-@interface MapFriendsViewController : MapBaseViewController
+@interface MapFriendsViewController : MapAllCityViewController
 
-@property (strong, nonatomic) NSArray *destinations;    //  object is cityModel
+@property (strong, nonatomic) NSArray *friends;
 
 @end

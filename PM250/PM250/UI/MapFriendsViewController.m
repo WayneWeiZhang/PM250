@@ -7,8 +7,7 @@
 //
 
 #import "MapFriendsViewController.h"
-#import "CityModel.h"
-#import "GLobalDataManager.h"
+#import "FriendModel.h"
 
 @interface MapFriendsViewController ()
 
@@ -29,8 +28,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.destinations = [GLobalDataManager sharedInstance].cityList;
-    [self addCircles];
+    NSMutableArray *tmpCitys = [NSMutableArray array];
+    for (FriendModel *model in self.friends)
+    {
+//        model.cityModel =
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,46 +41,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)addCircles
-{
-    for (CityModel *model in self.destinations) {
-        CLLocationCoordinate2D coor;
-        coor.latitude = [model.lat doubleValue];
-        coor.longitude = [model.lng doubleValue];
-        BMKCircle *circle = [BMKCircle circleWithCenterCoordinate:coor radius:50000];
-        [self.mapView addOverlay:circle];
-    }
-}
+//- (void)addFriends
 
-- (BMKOverlayView *)mapView:(BMKMapView *)mapView viewForOverlay:(id <BMKOverlay>)overlay
-{
-	if ([overlay isKindOfClass:[BMKCircle class]])
-    {
-        BMKCircleView* circleView = [[BMKCircleView alloc] initWithOverlay:overlay];
-        circleView.fillColor = [[UIColor redColor] colorWithAlphaComponent:0.5];
-//        circleView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
-//        circleView.lineWidth = 5.0;
-		return circleView;
-    }
-	
-	return nil;
-}
-
-- (void)mapView:(BMKMapView *)mapView didUpdateUserLocation:(BMKUserLocation *)userLocation
-{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        
-        self.mapView.centerCoordinate = userLocation.location.coordinate;
-        self.mapView.showsUserLocation = NO;
-        [self.mapView setRegion: BMKCoordinateRegionMakeWithDistance(self.mapView.centerCoordinate, 800000.0f, 800000.0f)
-                       animated: YES];
-        
-//        [self.mapView removeOverlays:self.mapView.overlays];
-//        [self.mapView removeAnnotations:self.mapView.annotations];
-//        [self addPointAnnotation];
-//        [self addEscapeLines];
-    });
-}
+//- (BMKAnnotationView *)mapView:(BMKMapView *)view viewForAnnotation:(id <BMKAnnotation>)annotation
+//{
+//	if ([annotation isKindOfClass:[RouteAnnotation class]]) {
+//		return [self getRouteAnnotationView:view viewForAnnotation:(RouteAnnotation*)annotation];
+//	}
+//	return nil;
+//}
 
 @end

@@ -12,6 +12,9 @@
 #import "JBChartHeaderView.h"
 #import "JBBarChartFooterView.h"
 #import "JBChartInformationView.h"
+#import "MapAllCityViewController.h"
+#import "MapFriendsViewController.h"
+#import "GLobalDataManager.h"
 
 // Numerics
 CGFloat const kDetailChartViewControllerChartHeight = 300.0f;
@@ -174,5 +177,13 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     }];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"MapAllCityViewControllerSegue"])
+    {
+        MapAllCityViewController *vc = segue.destinationViewController;
+        vc.destinations = [GLobalDataManager sharedInstance].cityList;
+    }
+}
 
 @end
