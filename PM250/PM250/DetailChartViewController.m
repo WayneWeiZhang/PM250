@@ -18,6 +18,8 @@
 #import "FriendModel.h"
 #import "FakeDataGenerator.h"
 #import <BaiduSocialShare_Internal/BDSocialShareSDK_Internal.h>
+#import "ImageHelper.h"
+#import "UIImage+AHRotated.h"
 
 // Numerics
 CGFloat const kDetailChartViewControllerChartHeight = 300.0f;
@@ -196,7 +198,38 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 }
 
 - (IBAction)share:(id)sender {
-    BDSocialShareContent *content = [BDSocialShareContent shareContentWithDescription:@"dhfsjkgjdhf" url:@"http://www.baidu.com" title:@"AirHit"];
+    BDSocialShareContent *content = [BDSocialShareContent shareContentWithDescription:@"水深火热" url:@"http://www.baidu.com" title:@"AirHit"];
+    
+    UIImage *shareImage = nil;
+    if ([self.rightBarButton.title isEqualToString:@"地图"])
+    {
+        shareImage = [ImageHelper imageWithView:self.backgroundView];
+//        shareImage = [shareImage imageRotatedByDegrees:90];
+    }
+    else
+    {
+        UIImage *firstImage = [ImageHelper imageWithView:self.mapViewController.mapView];
+        UIImage *secondImage = [ImageHelper glToUIImage];
+        shareImage = [ImageHelper mergerImage:firstImage secodImage:secondImage];
+//
+    }
+    
+    if (self.segmentedControl.selectedSegmentIndex == 0)
+    {
+        
+    }
+    else
+    {
+        if ([self.rightBarButton.title isEqualToString:@"地图"])
+        {
+            
+        }
+        else
+        {
+            
+        }
+    }
+    [content addImageWithImageSource:shareImage imageUrl:nil];
     [BDSocialShareSDK_Internal showShareMenuWithShareContent:content displayPlatforms:@[kBD_SOCIAL_SHARE_PLATFORM_SINAWEIBO, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_SESSION, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_TIMELINE, kBD_SOCIAL_SHARE_PLATFORM_EMAIL] supportedInterfaceOrientations:UIInterfaceOrientationMaskPortrait isStatusBarHidden:NO targetViewForPad:nil result:^(BD_SOCIAL_RESULT requestResult, NSString *platformType, id response, NSError *error) {
         
     }];

@@ -56,8 +56,6 @@
 
 - (void)refresh
 {
-    self.mapView.delegate = nil;
-    
     self.destinations = nil;
     self.friends = nil;
     NSArray *tmpAnnotations = [NSArray arrayWithArray:self.mapView.annotations];
@@ -90,8 +88,6 @@
         [self addCircles];
         [self addAnnotation];
     }
-    
-    self.mapView.delegate = self;
 }
 
 - (void)addAnnotation
@@ -105,6 +101,7 @@
         coor.latitude = [model.cityModel.lat doubleValue];
         coor.longitude = [model.cityModel.lng doubleValue];
         annotation.coordinate = coor;
+        annotation.title = [NSString stringWithFormat:@"%d", [self.friends indexOfObject:model]];
         //        pointAnnotation.title = @"test";
         //        pointAnnotation.subtitle = @"此Annotation可拖拽!";
         [self.mapView addAnnotation:annotation];
@@ -119,25 +116,14 @@
     if (annotationView == nil)
     {
         annotationView = [[BMKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:FriendsAnnotationID];
-        
     }
     
-    if (self.friendsOverlays.count)
+    NSUInteger index = [[(BMKPointAnnotation *)annotation title] integerValue];
+    if (index < self.friends.count)
     {
-        NSUInteger index = [self.friendsOverlays indexOfObject:annotation];
-        if (index < self.friends.count)
-        {
-            FriendModel *friendModel = self.friends[index];
-            
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-                NSData *data = [NSData dataWithContentsOfURL:friendModel.imageUrl];
-                
-                dispatch_async(dispatch_get_main_queue(), ^(void) {
-                    annotationView.image = [UIImage imageWithData:data];
-                });
-            });
-        }
-        
+        FriendModel *friendModel = self.friends[index];
+        NSData *data = [NSData dataWithContentsOfURL:friendModel.imageUrl];
+        annotationView.image = [UIImage imageWithData:data];
     }
     
     

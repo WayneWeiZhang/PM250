@@ -13,6 +13,7 @@
 		1399891D185C4452008B4D80 /* MapAllCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1399891C185C4452008B4D80 /* MapAllCityViewController.m */; };
 		13998920185C49FB008B4D80 /* FriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1399891F185C49FB008B4D80 /* FriendModel.m */; };
 		13998923185C4CB0008B4D80 /* FakeDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 13998922185C4CB0008B4D80 /* FakeDataGenerator.m */; };
+		13998929185C8D80008B4D80 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 13998928185C8D80008B4D80 /* ImageHelper.m */; };
 		139C3462185B1AC300DB2849 /* BaiduSocialShare_Internal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139C3451185B1AC300DB2849 /* BaiduSocialShare_Internal.framework */; };
 		139C3463185B1AC300DB2849 /* BaiduSocialShareSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 139C3452185B1AC300DB2849 /* BaiduSocialShareSource.bundle */; };
 		139C3464185B1AC300DB2849 /* TencentOpenAPI in Frameworks */ = {isa = PBXBuildFile; fileRef = 139C345A185B1AC300DB2849 /* TencentOpenAPI */; };
@@ -94,6 +95,8 @@
 		1399891F185C49FB008B4D80 /* FriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendModel.m; sourceTree = "<group>"; };
 		13998921185C4CB0008B4D80 /* FakeDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeDataGenerator.h; sourceTree = "<group>"; };
 		13998922185C4CB0008B4D80 /* FakeDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeDataGenerator.m; sourceTree = "<group>"; };
+		13998927185C8D80008B4D80 /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelper.h; sourceTree = "<group>"; };
+		13998928185C8D80008B4D80 /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelper.m; sourceTree = "<group>"; };
 		139C3451185B1AC300DB2849 /* BaiduSocialShare_Internal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduSocialShare_Internal.framework; sourceTree = "<group>"; };
 		139C3452185B1AC300DB2849 /* BaiduSocialShareSource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BaiduSocialShareSource.bundle; sourceTree = "<group>"; };
 		139C3454185B1AC300DB2849 /* QQApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQApi.h; sourceTree = "<group>"; };
@@ -347,6 +350,8 @@
 				13998919185C3814008B4D80 /* GLobalDataManager.m */,
 				13998921185C4CB0008B4D80 /* FakeDataGenerator.h */,
 				13998922185C4CB0008B4D80 /* FakeDataGenerator.m */,
+				13998927185C8D80008B4D80 /* ImageHelper.h */,
+				13998928185C8D80008B4D80 /* ImageHelper.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -800,6 +805,7 @@
 				13EDCAF2185C0D62000C0149 /* CityListRequestModel.m in Sources */,
 				13EDCAF5185C1170000C0149 /* CurrentCityRequestModel.m in Sources */,
 				13998923185C4CB0008B4D80 /* FakeDataGenerator.m in Sources */,
+				13998929185C8D80008B4D80 /* ImageHelper.m in Sources */,
 				8ED9363918599BE9005DA655 /* ViewController.m in Sources */,
 				8E9620CB185AB4A40059B468 /* ChartViewController.m in Sources */,
 				1399891D185C4452008B4D80 /* MapAllCityViewController.m in Sources */,
