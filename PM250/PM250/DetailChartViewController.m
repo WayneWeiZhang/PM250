@@ -42,6 +42,7 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 //@property (nonatomic, weak) MapAllCityViewController *allCityViewController;
 @property (nonatomic, weak) MapFriendsViewController *mapViewController;
 @property (nonatomic, copy) NSArray *countryDataArray;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (nonatomic, copy) NSArray *friendsDataArray;
 // Buttons
 - (void)chartToggleButtonPressed:(id)sender;
@@ -128,6 +129,7 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
         self.mapViewController.view.hidden = YES;
         [button setTitle:@"地图"];
     }
+    [self segmentDidSelect:self.segmentedControl];
 }
 
 - (NSArray *)validateDataArrayFromArray:(NSArray *)dataArray {
