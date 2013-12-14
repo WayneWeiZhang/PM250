@@ -14,4 +14,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import "JBConstants.h"
+    #import <CoreLocation/CoreLocation.h>
+    #import "CommonConfig.h"
+    #import "AFNetworking.h"
 #endif
