@@ -20,6 +20,7 @@
 #import <BaiduSocialShare_Internal/BDSocialShareSDK_Internal.h>
 #import "ImageHelper.h"
 #import "UIImage+AHRotated.h"
+#import "BMapKit.h"
 
 // Numerics
 CGFloat const kDetailChartViewControllerChartHeight = 300.0f;
@@ -136,6 +137,7 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
         {
             self.mapViewController.type = MapFriendsViewControllerTypeFriends;
             [self.mapViewController refresh];
+            [self.mapViewController.mapView setRegion: BMKCoordinateRegionMakeWithDistance(self.mapViewController.mapView.centerCoordinate, 300000.0f, 300000.0f) animated: NO];
         }
     }
     
