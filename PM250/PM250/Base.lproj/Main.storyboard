@@ -109,6 +109,9 @@
                                                 <segment title="全国"/>
                                                 <segment title="好友"/>
                                             </segments>
+                                            <connections>
+                                                <action selector="segmentDidSelect:" destination="gld-0u-0cl" eventType="valueChanged" id="rTx-2y-CMu"/>
+                                            </connections>
                                         </segmentedControl>
                                         <barButtonItem key="rightBarButtonItem" title="地图" id="b5g-ey-4IX">
                                             <connections>

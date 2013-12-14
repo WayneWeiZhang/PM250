@@ -46,11 +46,16 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 - (void)initFakeData;
 @end
 
-@implementation DetailChartViewController
-- (IBAction)toMapMode:(id)sender {
-    self.backgroundView.hidden = YES;
-    self.allCityViewController.view.hidden = NO;
+@implementation DetailChartViewController {
+    NSMutableArray *_labelArray;
 }
+
+- (IBAction)segmentDidSelect:(id)sender {
+    [self.barChartView reloadData];
+    [self.barChartView setState:JBChartViewStateCollapsed];
+    [self.barChartView setState:JBChartViewStateExpanded animated:YES callback:nil];
+}
+
 - (IBAction)rightButtonDidTap:(UIBarButtonItem *)button {
     if ([button.title isEqualToString:@"地图"]) {
         self.backgroundView.hidden = YES;
@@ -164,7 +169,7 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
             .size = label.frame.size,
             .origin.y = 6.0f + 17.6f * idx
         };
-        NSLog(@"LABEL FRAME %@", NSStringFromCGRect(label.frame));
+        [_labelArray addObject:label];
         [self.backgroundView addSubview:label];
     }];
 }
