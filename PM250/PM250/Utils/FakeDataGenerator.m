@@ -62,23 +62,23 @@
     {
         if ([model.name isEqualToString:@"北京"])
         {
-            [tmpArray[0] setValue:model.pm2_5 forKey:@"pm2_5"];
+            [[(FriendModel *)tmpArray[0] cityModel] setValue:model.pm2_5 forKey:@"pm2_5"];
         }
         else if ([model.name isEqualToString:@"成都"])
         {
-            [tmpArray[1] setValue:model.pm2_5 forKey:@"pm2_5"];
+            [[(FriendModel *)tmpArray[1] cityModel] setValue:model.pm2_5 forKey:@"pm2_5"];
         }
         else if ([model.name isEqualToString:@"广州"])
         {
-            [tmpArray[2] setValue:model.pm2_5 forKey:@"pm2_5"];
+            [[(FriendModel *)tmpArray[2] cityModel] setValue:model.pm2_5 forKey:@"pm2_5"];
         }
         else if ([model.name isEqualToString:@"青岛"])
         {
-            [tmpArray[3] setValue:model.pm2_5 forKey:@"pm2_5"];
+            [[(FriendModel *)tmpArray[3] cityModel] setValue:model.pm2_5 forKey:@"pm2_5"];
         }
         else if ([model.name isEqualToString:@"上海"])
         {
-            [tmpArray[4] setValue:model.pm2_5 forKey:@"pm2_5"];
+            [[(FriendModel *)tmpArray[4] cityModel] setValue:model.pm2_5 forKey:@"pm2_5"];
         }
     }
     

@@ -16,6 +16,8 @@
 #import "MapFriendsViewController.h"
 #import "GLobalDataManager.h"
 #import "CityModel.h"
+#import "FriendModel.h"
+#import "FakeDataGenerator.h"
 // Numerics
 CGFloat const kDetailChartViewControllerChartHeight = 300.0f;
 CGFloat const kDetailChartViewControllerChartHeaderHeight = 80.0f;
@@ -39,6 +41,8 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 @property (strong, nonatomic) IBOutlet UIView *backgroundView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *rightBarButton;
 @property (nonatomic, weak) MapAllCityViewController *allCityViewController;
+@property (nonatomic, copy) NSArray *countryDataArray;
+@property (nonatomic, copy) NSArray *friendsDataArray;
 // Buttons
 - (void)chartToggleButtonPressed:(id)sender;
 
@@ -50,7 +54,14 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     NSMutableArray *_labelArray;
 }
 
-- (IBAction)segmentDidSelect:(id)sender {
+- (IBAction)segmentDidSelect:(UISegmentedControl *)sender {
+    if (sender.selectedSegmentIndex == 0) {
+        self.chartData = self.countryDataArray;
+    }
+    else {
+        self.chartData = self.friendsDataArray;
+    }
+    
     [self.barChartView reloadData];
     [self.barChartView setState:JBChartViewStateCollapsed];
     [self.barChartView setState:JBChartViewStateExpanded animated:YES callback:nil];
@@ -112,10 +123,12 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 
 - (void)initFakeData
 {
+    self.friendsDataArray = [FakeDataGenerator getFriends];
     NSArray *cityPM250DataList = [self validateDataArrayFromArray:[GLobalDataManager sharedInstance].cityList];
     NSArray *first24CityDataList = [cityPM250DataList subarrayWithRange:(NSRange){.location = 0, .length = 24}];
     CityModel *cityModel = [self cityModelFromArray:cityPM250DataList WithCityName:@"shanghai"];
     NSArray *dataArray = [first24CityDataList arrayByAddingObject:cityModel];
+    self.countryDataArray = dataArray;
     self.chartData = dataArray;
     for (CityModel *model in dataArray) {
         NSLog(@"model en_name %@", model.ename);
@@ -195,20 +208,30 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 
 - (NSInteger)barChartView:(JBBarChartView *)barChartView heightForBarViewAtAtIndex:(NSInteger)index
 {
-    CityModel *cityModel = [self.chartData objectAtIndex:index];
-    return [cityModel.pm2_5 integerValue];
+    NSInteger height = 0.0f;
+    id data = [self.chartData objectAtIndex:index];
+    if ([data isKindOfClass:CityModel.class]) {
+        CityModel *cityModel = [self.chartData objectAtIndex:index];
+        height = [cityModel.pm2_5 integerValue];
+    }
+    else {
+        FriendModel *friendModel = [self.chartData objectAtIndex:index];
+        height = [friendModel.cityModel.pm2_5 integerValue];
+    }
+    return height;
 }
 
 #pragma mark - JBBarChartViewDataSource
 
 - (NSInteger)numberOfBarsInBarChartView:(JBBarChartView *)barChartView
 {
-    return kDetailChartViewControllerNumBars;
+    return self.chartData.count;
 }
 
 - (NSInteger)barPaddingForBarChartView:(JBBarChartView *)barChartView
 {
-    return kDetailChartViewControllerBarPadding;
+    NSInteger padding = (self.chartData.count == 25) ? kDetailChartViewControllerBarPadding : 30.0f;
+    return padding;
 }
 
 - (UIColor *)barColorForBarChartView:(JBBarChartView *)barChartView atIndex:(NSInteger)index
