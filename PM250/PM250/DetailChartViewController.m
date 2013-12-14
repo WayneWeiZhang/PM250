@@ -247,7 +247,7 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
         }
     }
     [content addImageWithImageSource:shareImage imageUrl:nil];
-    [BDSocialShareSDK_Internal showShareMenuWithShareContent:content displayPlatforms:@[kBD_SOCIAL_SHARE_PLATFORM_SINAWEIBO, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_SESSION, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_TIMELINE, kBD_SOCIAL_SHARE_PLATFORM_EMAIL] supportedInterfaceOrientations:UIInterfaceOrientationMaskPortrait isStatusBarHidden:NO targetViewForPad:nil result:^(BD_SOCIAL_RESULT requestResult, NSString *platformType, id response, NSError *error) {
+    [BDSocialShareSDK_Internal showShareMenuWithShareContent:content displayPlatforms:@[kBD_SOCIAL_SHARE_PLATFORM_SINAWEIBO, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_SESSION, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_TIMELINE] supportedInterfaceOrientations:UIInterfaceOrientationMaskPortrait isStatusBarHidden:NO targetViewForPad:nil result:^(BD_SOCIAL_RESULT requestResult, NSString *platformType, id response, NSError *error) {
         
     }];
 }

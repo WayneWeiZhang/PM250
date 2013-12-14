@@ -37,6 +37,7 @@
     
     NSArray *cityNames = @[@"北京", @"成都", @"广州", @"青岛", @"上海"];
     NSArray *cityENames = @[@"beijing", @"chengdu", @"guangzhou", @"qingdao", @"shanghai"];
+    NSArray *names = @[@"李川", @"奇松", @"张伟", @"腾飞", @"斌哥"];
     NSArray *lats = @[@(39.90403), @(30.572269), @(23.129163), @(36.067082), @(31.230416)];
     NSArray *lngs = @[@(116.407526), @(104.066541), @(113.264435), @(120.38264), @(121.473701)];
     
@@ -51,7 +52,8 @@
         
         FriendModel *friendModel = [[FriendModel alloc] init];
         friendModel.cityModel = cityModel;
-        friendModel.name = [NSString stringWithFormat:@"%d", i];
+//        friendModel.name = [NSString stringWithFormat:@"%d", i];
+        friendModel.name = names[i];
         friendModel.imageUrl = [NSURL URLWithString:@"http://www.baidu.com/img/bdlogo.gif"];
         
         [tmpArray addObject:friendModel];
