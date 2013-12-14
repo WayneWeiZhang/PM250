@@ -48,8 +48,6 @@
 	        if (successBlock) {
 	            successBlock(resObject);
 			}
-            
-            //            [self setCacheData:[self getIdentity:parameters] Data:responseObject];
 		}
 	    else {
 	        if (failureBlock) {

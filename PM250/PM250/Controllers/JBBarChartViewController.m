@@ -32,8 +32,6 @@ NSString * const kJBBarChartViewControllerNavButtonViewKey = @"view";
 
 @property (nonatomic, strong) JBBarChartView *barChartView;
 @property (nonatomic, strong) JBChartInformationView *informationView;
-@property (nonatomic, strong) NSArray *chartData;
-@property (nonatomic, strong) NSArray *monthlySymbols;
 
 // Buttons
 - (void)chartToggleButtonPressed:(id)sender;
@@ -79,6 +77,14 @@ NSString * const kJBBarChartViewControllerNavButtonViewKey = @"view";
     _chartData = [NSArray arrayWithArray:mutableChartData];
 }
 
+- (void)reloadData {
+    [self initFakeData];
+    [self.barChartView reloadData];
+    [self.barChartView setState:JBChartViewStateCollapsed];
+    [self.barChartView setState:JBChartViewStateExpanded animated:YES callback:nil];
+   
+}
+
 #pragma mark - View Lifecycle
 
 - (void)loadView
@@ -88,19 +94,19 @@ NSString * const kJBBarChartViewControllerNavButtonViewKey = @"view";
     self.view.backgroundColor = kJBColorBarChartControllerBackground;
     self.navigationItem.rightBarButtonItem = [self chartToggleButtonWithTarget:self action:@selector(chartToggleButtonPressed:)];
 
-    self.barChartView = [[JBBarChartView alloc] initWithFrame:CGRectMake(kJBNumericDefaultPadding, kJBNumericDefaultPadding + 64.0f, self.view.bounds.size.width - (kJBNumericDefaultPadding * 2), kJBBarChartViewControllerChartHeight)];
+    self.barChartView = [[JBBarChartView alloc] initWithFrame:CGRectMake(kJBNumericDefaultPadding, kJBNumericDefaultPadding + 0.0f, self.view.bounds.size.width - (kJBNumericDefaultPadding * 2), kJBBarChartViewControllerChartHeight)];
     self.barChartView.delegate = self;
     self.barChartView.dataSource = self;
     self.barChartView.headerPadding = kJBBarChartViewControllerChartHeaderPadding;
     self.barChartView.backgroundColor = kJBColorBarChartBackground;
     
-    JBChartHeaderView *headerView = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(kJBNumericDefaultPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBBarChartViewControllerChartHeaderHeight * 0.5) + 64.0f, self.view.bounds.size.width - (kJBNumericDefaultPadding * 2), kJBBarChartViewControllerChartHeaderHeight)];
+    JBChartHeaderView *headerView = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(kJBNumericDefaultPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBBarChartViewControllerChartHeaderHeight * 0.5) + 0.0f, self.view.bounds.size.width - (kJBNumericDefaultPadding * 2), kJBBarChartViewControllerChartHeaderHeight)];
     headerView.titleLabel.text = [kJBStringLabelAverageMonthlyRainfall uppercaseString];
     headerView.subtitleLabel.text = [NSString stringWithFormat:@"%@ - %@", kJBStringLabelSanFrancisco, kJBStringLabel2013];
     headerView.separatorColor = kJBColorBarChartHeaderSeparatorColor;
     self.barChartView.headerView = headerView;
     
-    JBBarChartFooterView *footerView = [[JBBarChartFooterView alloc] initWithFrame:CGRectMake(kJBNumericDefaultPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBBarChartViewControllerChartFooterHeight * 0.5) + 64.0f, self.view.bounds.size.width - (kJBNumericDefaultPadding * 2), kJBBarChartViewControllerChartFooterHeight)];
+    JBBarChartFooterView *footerView = [[JBBarChartFooterView alloc] initWithFrame:CGRectMake(kJBNumericDefaultPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBBarChartViewControllerChartFooterHeight * 0.5) + 0.0f, self.view.bounds.size.width - (kJBNumericDefaultPadding * 2), kJBBarChartViewControllerChartFooterHeight)];
     footerView.padding = kJBBarChartViewControllerChartFooterPadding;
     footerView.leftLabel.text = [kJBStringLabeJanuary uppercaseString];
     footerView.leftLabel.textColor = [UIColor whiteColor];
@@ -108,7 +114,7 @@ NSString * const kJBBarChartViewControllerNavButtonViewKey = @"view";
     footerView.rightLabel.textColor = [UIColor whiteColor];
     self.barChartView.footerView = footerView;
     
-    self.informationView = [[JBChartInformationView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, CGRectGetMaxY(self.barChartView.frame) + 64.0f, self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.barChartView.frame) - CGRectGetMaxY(self.navigationController.navigationBar.frame))];
+    self.informationView = [[JBChartInformationView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, CGRectGetMaxY(self.barChartView.frame) + 0.0f, self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.barChartView.frame) - CGRectGetMaxY(self.navigationController.navigationBar.frame))];
     [self.view addSubview:self.informationView];
 
     [self.view addSubview:self.barChartView];

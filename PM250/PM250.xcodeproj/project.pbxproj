@@ -28,6 +28,8 @@
 		139C34BA185C032D00DB2849 /* AHBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 139C34B9185C032D00DB2849 /* AHBaseRequest.m */; };
 		13EDCAEF185C0921000C0149 /* AHCityListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAEE185C0921000C0149 /* AHCityListRequest.m */; };
 		13EDCAF2185C0D62000C0149 /* CityListRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAF1185C0D62000C0149 /* CityListRequestModel.m */; };
+		620CF6A118600570005B8485 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 620CF69F18600570005B8485 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		620CF6A418601068005B8485 /* AHRegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 620CF6A318601068005B8485 /* AHRegisterRequest.m */; };
 		13EDCAF5185C1170000C0149 /* CurrentCityRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAF4185C1170000C0149 /* CurrentCityRequestModel.m */; };
 		13EDCAFB185C12EE000C0149 /* AHCurrentCityRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAFA185C12EE000C0149 /* AHCurrentCityRequest.m */; };
 		13EDCAFE185C1626000C0149 /* HistoryRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAFD185C1626000C0149 /* HistoryRequestModel.m */; };
@@ -166,6 +168,11 @@
 		13EDCB05185C203F000C0149 /* AHRequestHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHRequestHeader.h; sourceTree = "<group>"; };
 		3F2F90F0B2424E5C8D1D00B6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		4812EEBBE7B54B4B9D8D5A0C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		620CF69E18600570005B8485 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		620CF69F18600570005B8485 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		620CF6A018600570005B8485 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		620CF6A218601068005B8485 /* AHRegisterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHRegisterRequest.h; sourceTree = "<group>"; };
+		620CF6A318601068005B8485 /* AHRegisterRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHRegisterRequest.m; sourceTree = "<group>"; };
 		8E9620C9185AB4A40059B468 /* ChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartViewController.h; sourceTree = "<group>"; };
 		8E9620CA185AB4A40059B468 /* ChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartViewController.m; sourceTree = "<group>"; };
 		8E9620DC185ADB220059B468 /* JBChartTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartTableCell.h; sourceTree = "<group>"; };
@@ -254,6 +261,9 @@
 		139C344F185B1AC300DB2849 /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				620CF69E18600570005B8485 /* GTMBase64.h */,
+				620CF69F18600570005B8485 /* GTMBase64.m */,
+				620CF6A018600570005B8485 /* GTMDefines.h */,
 				139C3477185B23FB00DB2849 /* BaiduMap */,
 				139C3450185B1AC300DB2849 /* BaiduSocialShare_Internal */,
 			);
@@ -427,6 +437,8 @@
 				139C34B9185C032D00DB2849 /* AHBaseRequest.m */,
 				13EDCAED185C0921000C0149 /* AHCityListRequest.h */,
 				13EDCAEE185C0921000C0149 /* AHCityListRequest.m */,
+				620CF6A218601068005B8485 /* AHRegisterRequest.h */,
+				620CF6A318601068005B8485 /* AHRegisterRequest.m */,
 				13EDCAF9185C12EE000C0149 /* AHCurrentCityRequest.h */,
 				13EDCAFA185C12EE000C0149 /* AHCurrentCityRequest.m */,
 				13EDCAFF185C1675000C0149 /* AHHistoryRequest.h */,
@@ -766,6 +778,7 @@
 				139C34BA185C032D00DB2849 /* AHBaseRequest.m in Sources */,
 				13EDCB04185C175A000C0149 /* AHBaseModel.m in Sources */,
 				8E9620E8185ADB220059B468 /* JBLineChartFooterView.m in Sources */,
+				620CF6A118600570005B8485 /* GTMBase64.m in Sources */,
 				8E962105185ADB8B0059B468 /* JBBaseNavigationController.m in Sources */,
 				13EDCAEF185C0921000C0149 /* AHCityListRequest.m in Sources */,
 				8E9620E6185ADB220059B468 /* JBChartTableCell.m in Sources */,
@@ -779,6 +792,7 @@
 				13EDCB01185C1675000C0149 /* AHHistoryRequest.m in Sources */,
 				139C34A9185B2B9100DB2849 /* MapBaseViewController.m in Sources */,
 				8E962109185ADB8B0059B468 /* JBChartListViewController.m in Sources */,
+				620CF6A418601068005B8485 /* AHRegisterRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -906,7 +920,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Lu Gong (3NZGG4TM96)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: LIU QISONG (8TWY5P737L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: LIU QISONG (8TWY5P737L)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/PM250/3rd/BaiduSocialShare_Internal",
@@ -922,7 +937,7 @@
 					"$(SRCROOT)/PM250/3rd/BaiduMap/libs",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "AC612E73-53E1-4430-8342-17894E67C56F";
+				PROVISIONING_PROFILE = "55DD2878-0B77-4AD4-A4F1-8C91E6CD5262";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -949,7 +964,7 @@
 					"$(SRCROOT)/PM250/3rd/BaiduMap/libs",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "AC612E73-53E1-4430-8342-17894E67C56F";
+				PROVISIONING_PROFILE = "55DD2878-0B77-4AD4-A4F1-8C91E6CD5262";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

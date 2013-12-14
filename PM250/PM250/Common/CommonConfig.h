@@ -15,6 +15,7 @@
 
 #define kAHServiceBaseUrl           @"http://airhit.duapp.com"
 #define KAHServiceUrlCityList       @"citylist"
+#define kAHServiceRegister          @"register"
 #define KAHServiceUrlCurrent        @"current"
 #define KAHServiceUrlHistory        @"history"
 
