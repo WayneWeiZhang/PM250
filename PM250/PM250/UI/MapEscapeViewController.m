@@ -37,10 +37,10 @@
 
 - (void)addEscapeLines
 {
-    for (CLLocation *location in self.destinationLocations)
+    for (MapLocationModel *model in self.destinations)
     {
         CLLocationCoordinate2D startCoor = self.userLocation.location.coordinate;
-        CLLocationCoordinate2D endCoor = location.coordinate;
+        CLLocationCoordinate2D endCoor = model.location.coordinate;
         CLLocationCoordinate2D coors[2] = {startCoor, endCoor};
         BMKPolyline *line = [BMKPolyline polylineWithCoordinates:coors count:2];
         [self.mapView addOverlay:line];
@@ -49,10 +49,10 @@
 
 - (void)addPointAnnotation
 {
-    for (CLLocation *location in self.destinationLocations)
+    for (MapLocationModel *model in self.destinations)
     {
         BMKPointAnnotation *pointAnnotation = [[BMKPointAnnotation alloc] init];
-        CLLocationCoordinate2D coor = location.coordinate;
+        CLLocationCoordinate2D coor = model.location.coordinate;
         pointAnnotation.coordinate = coor;
 //        pointAnnotation.title = @"test";
 //        pointAnnotation.subtitle = @"此Annotation可拖拽!";
@@ -72,6 +72,47 @@
     [self.mapView removeOverlays:self.mapView.overlays];
     [self addPointAnnotation];
     [self addEscapeLines];
+}
+
+- (BMKOverlayView *)mapView:(BMKMapView *)mapView viewForOverlay:(id <BMKOverlay>)overlay
+{
+	if ([overlay isKindOfClass:[BMKCircle class]])
+    {
+        BMKCircleView* circleView = [[BMKCircleView alloc] initWithOverlay:overlay];
+        circleView.fillColor = [[UIColor redColor] colorWithAlphaComponent:0.5];
+        circleView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
+        circleView.lineWidth = 5.0;
+		return circleView;
+    }
+    
+    if ([overlay isKindOfClass:[BMKPolyline class]])
+    {
+        BMKPolylineView* polylineView = [[BMKPolylineView alloc] initWithOverlay:overlay];
+        polylineView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:1];
+        polylineView.lineWidth = 3.0;
+		return polylineView;
+    }
+	
+	return nil;
+}
+
+// 根据anntation生成对应的View
+- (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation
+{
+    NSString *AnnotationViewID = @"PM25MARK";
+    BMKPinAnnotationView *annotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationViewID];
+    // 设置颜色
+    ((BMKPinAnnotationView*)annotationView).pinColor = BMKPinAnnotationColorRed;
+    // 从天上掉下效果
+    ((BMKPinAnnotationView*)annotationView).animatesDrop = NO;
+    return annotationView;
+    
+}
+
+// 当点击annotation view弹出的泡泡时，调用此接口
+- (void)mapView:(BMKMapView *)mapView annotationViewForBubble:(BMKAnnotationView *)view;
+{
+    NSLog(@"paopaoclick");
 }
 
 @end

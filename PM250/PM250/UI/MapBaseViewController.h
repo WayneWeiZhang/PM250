@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BMapKit.h"
+#import "MapLocationModel.h"
 
 @interface MapBaseViewController : UIViewController <BMKMapViewDelegate, BMKUserLocationDelegate>
 

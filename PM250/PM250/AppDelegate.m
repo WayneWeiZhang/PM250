@@ -9,6 +9,13 @@
 #import "AppDelegate.h"
 #import <BaiduSocialShare_Internal/BDSocialShareSDK_Internal.h>
 #import "CommonConfig.h"
+#import "BMapKit.h"
+
+@interface AppDelegate () <BMKGeneralDelegate>
+
+@property (strong, nonatomic) BMKMapManager *mapManager;
+
+@end
 
 @implementation AppDelegate
 
@@ -16,6 +23,7 @@
 {
     // Override point for customization after application launch.
     [self initShareCenter];
+    [self initMapManager];
     
     return YES;
 }
@@ -58,6 +66,14 @@
     [BDSocialShareSDK_Internal registerApiKey:kSocialShareAppKey supportSharePlatforms:@[kBD_SOCIAL_SHARE_PLATFORM_SINAWEIBO, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_SESSION, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_TIMELINE, kBD_SOCIAL_SHARE_PLATFORM_EMAIL, kBD_SOCIAL_SHARE_PLATFORM_SMS]];
     
     [BDSocialShareSDK_Internal registerWXApp:kWeiXinAppKey];
+}
+
+- (void)initMapManager {
+    self.mapManager = [[BMKMapManager alloc] init];
+    BOOL ret = [self.mapManager start:@"jpl2MVZZ4SQ0OpMSpdxk2EXw" generalDelegate:self];
+    if (!ret) {
+		NSLog(@"manager start failed!");
+	}
 }
 
 @end

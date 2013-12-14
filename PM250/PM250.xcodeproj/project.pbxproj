@@ -22,6 +22,8 @@
 		139C34A5185B23FB00DB2849 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 139C34A3185B23FB00DB2849 /* mapapi.bundle */; };
 		139C34A9185B2B9100DB2849 /* MapBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139C34A8185B2B9100DB2849 /* MapBaseViewController.m */; };
 		139C34AC185B2D6300DB2849 /* MapEscapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139C34AB185B2D6300DB2849 /* MapEscapeViewController.m */; };
+		139C34AF185B35D600DB2849 /* MapFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 139C34AE185B35D600DB2849 /* MapFriendsViewController.m */; };
+		139C34B3185BEA2E00DB2849 /* MapLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 139C34B2185BEA2E00DB2849 /* MapLocationModel.m */; };
 		7284046D885B4B75A25D2FDA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4812EEBBE7B54B4B9D8D5A0C /* libPods.a */; };
 		8E9620CB185AB4A40059B468 /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9620CA185AB4A40059B468 /* ChartViewController.m */; };
 		8E9620E6185ADB220059B468 /* JBChartTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9620DD185ADB220059B468 /* JBChartTableCell.m */; };
@@ -130,6 +132,10 @@
 		139C34A8185B2B9100DB2849 /* MapBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapBaseViewController.m; sourceTree = "<group>"; };
 		139C34AA185B2D6300DB2849 /* MapEscapeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapEscapeViewController.h; sourceTree = "<group>"; };
 		139C34AB185B2D6300DB2849 /* MapEscapeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapEscapeViewController.m; sourceTree = "<group>"; };
+		139C34AD185B35D600DB2849 /* MapFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFriendsViewController.h; sourceTree = "<group>"; };
+		139C34AE185B35D600DB2849 /* MapFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapFriendsViewController.m; sourceTree = "<group>"; };
+		139C34B1185BEA2E00DB2849 /* MapLocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapLocationModel.h; sourceTree = "<group>"; };
+		139C34B2185BEA2E00DB2849 /* MapLocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapLocationModel.m; sourceTree = "<group>"; };
 		3F2F90F0B2424E5C8D1D00B6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		4812EEBBE7B54B4B9D8D5A0C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9620C9185AB4A40059B468 /* ChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartViewController.h; sourceTree = "<group>"; };
@@ -360,9 +366,21 @@
 				139C34A8185B2B9100DB2849 /* MapBaseViewController.m */,
 				139C34AA185B2D6300DB2849 /* MapEscapeViewController.h */,
 				139C34AB185B2D6300DB2849 /* MapEscapeViewController.m */,
+				139C34AD185B35D600DB2849 /* MapFriendsViewController.h */,
+				139C34AE185B35D600DB2849 /* MapFriendsViewController.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
+		};
+		139C34B0185BE9F800DB2849 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				139C34B1185BEA2E00DB2849 /* MapLocationModel.h */,
+				139C34B2185BEA2E00DB2849 /* MapLocationModel.m */,
+			);
+			name = Model;
+			path = PM250/Model;
+			sourceTree = SOURCE_ROOT;
 		};
 		8E9620DB185ADB220059B468 /* Cells */ = {
 			isa = PBXGroup;
@@ -490,6 +508,7 @@
 			children = (
 				139C346F185B1F7C00DB2849 /* Common */,
 				139C346B185B1BFB00DB2849 /* Utils */,
+				139C34B0185BE9F800DB2849 /* Model */,
 				139C34A6185B283A00DB2849 /* UI */,
 				139C344F185B1AC300DB2849 /* 3rd */,
 				8E9620F4185ADB8B0059B468 /* Controllers */,
@@ -680,6 +699,7 @@
 				8E962106185ADB8B0059B468 /* JBBaseTableViewController.m in Sources */,
 				8E96210A185ADB8B0059B468 /* JBLineChartViewController.m in Sources */,
 				139C346E185B1C3300DB2849 /* LocationHelper.m in Sources */,
+				139C34AF185B35D600DB2849 /* MapFriendsViewController.m in Sources */,
 				8ED9363318599BE9005DA655 /* AppDelegate.m in Sources */,
 				139C34AC185B2D6300DB2849 /* MapEscapeViewController.m in Sources */,
 				8E9620E8185ADB220059B468 /* JBLineChartFooterView.m in Sources */,
@@ -691,6 +711,7 @@
 				8E9620ED185ADB410059B468 /* JBChartInformationView.m in Sources */,
 				8E962107185ADB8B0059B468 /* JBBaseViewController.m in Sources */,
 				8E962108185ADB8B0059B468 /* JBBarChartViewController.m in Sources */,
+				139C34B3185BEA2E00DB2849 /* MapLocationModel.m in Sources */,
 				139C34A9185B2B9100DB2849 /* MapBaseViewController.m in Sources */,
 				8E962109185ADB8B0059B468 /* JBChartListViewController.m in Sources */,
 			);

@@ -10,6 +10,6 @@
 
 @interface MapEscapeViewController : MapBaseViewController
 
-@property (strong, nonatomic) NSArray *destinationLocations;        //  object为CLLocation
+@property (strong, nonatomic) NSArray *destinations;        //  object is MapLocationModel
 
 @end
