@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13998914185C3269008B4D80 /* RouteAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 13998913185C3269008B4D80 /* RouteAnnotation.m */; };
+		13998917185C32AF008B4D80 /* UIImage+AHRotated.m in Sources */ = {isa = PBXBuildFile; fileRef = 13998916185C32AF008B4D80 /* UIImage+AHRotated.m */; };
 		139C3462185B1AC300DB2849 /* BaiduSocialShare_Internal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139C3451185B1AC300DB2849 /* BaiduSocialShare_Internal.framework */; };
 		139C3463185B1AC300DB2849 /* BaiduSocialShareSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 139C3452185B1AC300DB2849 /* BaiduSocialShareSource.bundle */; };
 		139C3464185B1AC300DB2849 /* TencentOpenAPI in Frameworks */ = {isa = PBXBuildFile; fileRef = 139C345A185B1AC300DB2849 /* TencentOpenAPI */; };
@@ -28,13 +30,13 @@
 		139C34BA185C032D00DB2849 /* AHBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 139C34B9185C032D00DB2849 /* AHBaseRequest.m */; };
 		13EDCAEF185C0921000C0149 /* AHCityListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAEE185C0921000C0149 /* AHCityListRequest.m */; };
 		13EDCAF2185C0D62000C0149 /* CityListRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAF1185C0D62000C0149 /* CityListRequestModel.m */; };
-		620CF6A118600570005B8485 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 620CF69F18600570005B8485 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		620CF6A418601068005B8485 /* AHRegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 620CF6A318601068005B8485 /* AHRegisterRequest.m */; };
 		13EDCAF5185C1170000C0149 /* CurrentCityRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAF4185C1170000C0149 /* CurrentCityRequestModel.m */; };
 		13EDCAFB185C12EE000C0149 /* AHCurrentCityRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAFA185C12EE000C0149 /* AHCurrentCityRequest.m */; };
 		13EDCAFE185C1626000C0149 /* HistoryRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAFD185C1626000C0149 /* HistoryRequestModel.m */; };
 		13EDCB01185C1675000C0149 /* AHHistoryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCB00185C1675000C0149 /* AHHistoryRequest.m */; };
 		13EDCB04185C175A000C0149 /* AHBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCB03185C175A000C0149 /* AHBaseModel.m */; };
+		620CF6A118600570005B8485 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 620CF69F18600570005B8485 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		620CF6A418601068005B8485 /* AHRegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 620CF6A318601068005B8485 /* AHRegisterRequest.m */; };
 		7284046D885B4B75A25D2FDA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4812EEBBE7B54B4B9D8D5A0C /* libPods.a */; };
 		8E9620CB185AB4A40059B468 /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9620CA185AB4A40059B468 /* ChartViewController.m */; };
 		8E9620E6185ADB220059B468 /* JBChartTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9620DD185ADB220059B468 /* JBChartTableCell.m */; };
@@ -75,6 +77,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13998912185C3269008B4D80 /* RouteAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteAnnotation.h; sourceTree = "<group>"; };
+		13998913185C3269008B4D80 /* RouteAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteAnnotation.m; sourceTree = "<group>"; };
+		13998915185C32AF008B4D80 /* UIImage+AHRotated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AHRotated.h"; sourceTree = "<group>"; };
+		13998916185C32AF008B4D80 /* UIImage+AHRotated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AHRotated.m"; sourceTree = "<group>"; };
 		139C3451185B1AC300DB2849 /* BaiduSocialShare_Internal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduSocialShare_Internal.framework; sourceTree = "<group>"; };
 		139C3452185B1AC300DB2849 /* BaiduSocialShareSource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BaiduSocialShareSource.bundle; sourceTree = "<group>"; };
 		139C3454185B1AC300DB2849 /* QQApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQApi.h; sourceTree = "<group>"; };
@@ -320,6 +326,8 @@
 			children = (
 				139C346C185B1C3300DB2849 /* LocationHelper.h */,
 				139C346D185B1C3300DB2849 /* LocationHelper.m */,
+				13998915185C32AF008B4D80 /* UIImage+AHRotated.h */,
+				13998916185C32AF008B4D80 /* UIImage+AHRotated.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -406,6 +414,8 @@
 				139C34AB185B2D6300DB2849 /* MapEscapeViewController.m */,
 				139C34AD185B35D600DB2849 /* MapFriendsViewController.h */,
 				139C34AE185B35D600DB2849 /* MapFriendsViewController.m */,
+				13998912185C3269008B4D80 /* RouteAnnotation.h */,
+				13998913185C3269008B4D80 /* RouteAnnotation.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -783,7 +793,9 @@
 				13EDCAEF185C0921000C0149 /* AHCityListRequest.m in Sources */,
 				8E9620E6185ADB220059B468 /* JBChartTableCell.m in Sources */,
 				8E9620E7185ADB220059B468 /* JBBarChartFooterView.m in Sources */,
+				13998917185C32AF008B4D80 /* UIImage+AHRotated.m in Sources */,
 				8E9620E9185ADB220059B468 /* JBChartHeaderView.m in Sources */,
+				13998914185C3269008B4D80 /* RouteAnnotation.m in Sources */,
 				8ED9362F18599BE9005DA655 /* main.m in Sources */,
 				8E9620ED185ADB410059B468 /* JBChartInformationView.m in Sources */,
 				8E962107185ADB8B0059B468 /* JBBaseViewController.m in Sources */,
@@ -918,6 +930,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3F2F90F0B2424E5C8D1D00B6 /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: LIU QISONG (8TWY5P737L)";
@@ -938,6 +951,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "55DD2878-0B77-4AD4-A4F1-8C91E6CD5262";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -946,6 +960,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3F2F90F0B2424E5C8D1D00B6 /* Pods.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: LIU QISONG (8TWY5P737L)";
@@ -965,6 +980,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "55DD2878-0B77-4AD4-A4F1-8C91E6CD5262";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

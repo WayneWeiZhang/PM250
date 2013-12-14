@@ -10,7 +10,7 @@
 #import "BMapKit.h"
 #import "MapLocationModel.h"
 
-@interface MapBaseViewController : UIViewController <BMKMapViewDelegate, BMKUserLocationDelegate>
+@interface MapBaseViewController : UIViewController <BMKMapViewDelegate>
 
 @property (strong, nonatomic) BMKUserLocation *userLocation;
 @property (strong, nonatomic) BMKMapView *mapView;

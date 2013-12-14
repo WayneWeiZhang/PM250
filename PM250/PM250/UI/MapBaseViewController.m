@@ -47,7 +47,7 @@
 {
     [super viewWillAppear:animated];
     
-    [self.userLocation startUserLocationService];
+//    [self.userLocation startUserLocationService];
     
     [self.mapView viewWillAppear];
     self.mapView.delegate = self;
@@ -57,7 +57,7 @@
 {
     [super viewWillDisappear:animated];
     
-    [self.userLocation stopUserLocationService];
+//    [self.userLocation stopUserLocationService];
     
     self.mapView.delegate = nil;
     [self.mapView viewWillDisappear];
@@ -71,7 +71,7 @@
 
 - (void)handleEnterBackground:(NSNotification *)notification
 {
-    [self.userLocation stopUserLocationService];
+//    [self.userLocation stopUserLocationService];
     
     self.mapView.delegate = nil;
     [self.mapView viewWillDisappear];
@@ -79,7 +79,7 @@
 
 - (void)handleEnterForeground:(NSNotification *)notification
 {
-    [self.userLocation startUserLocationService];
+//    [self.userLocation startUserLocationService];
     
     self.mapView.delegate = self;
     [self.mapView viewWillAppear];
