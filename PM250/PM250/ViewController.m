@@ -9,9 +9,14 @@
 #import "ViewController.h"
 #import "JBBarChartViewController.h"
 #import "JBLineChartViewController.h"
-
+#import "GLobalDataManager.h"
+#import "AHHistoryRequest.h"
+#import "HistoryRequestModel.h"
+#import "CurrentCityRequestModel.h"
 @interface ViewController ()
 @property (nonatomic, weak) JBBarChartViewController *containerViewController;
+@property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (strong, nonatomic) IBOutlet UILabel *PM250Label;
 @end
 
 @implementation ViewController
@@ -23,6 +28,61 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSDictionary *dict = @{@"city": @"shanghai", @"start": @"2013-12-14 08-00-00"};
+    AHHistoryRequest *historyRequest = [AHHistoryRequest new];
+    [historyRequest request:dict
+                     method:@"GET"
+                cachePolicy:NO
+                    success:^(HistoryRequestModel *model) {
+                        NSInteger count = model.historyList.count;
+                        NSArray *array = [[[model.historyList subarrayWithRange:(NSRange) {.location = count - 11, .length = 10}] reverseObjectEnumerator] allObjects];
+                        [GLobalDataManager sharedInstance].historyData = array;
+                        self.containerViewController.chartData = [GLobalDataManager sharedInstance].historyData;
+                        [self.containerViewController reloadData];
+                        CurrentCityRequestModel *currentCityModel = array.lastObject;
+                        self.backgroundImageView.image = ([currentCityModel.pm2_5 integerValue] < 200) ? [UIImage imageNamed:@"bg_02"] : [UIImage imageNamed:@"bg_01"];
+                        self.PM250Label.text = currentCityModel.pm2_5;
+                    }
+                    failure:NULL];
+/*
+    NSString *urlString = @"http://airhit.duapp.com/history?city=shanghai&start=2013-12-14%2007-00-00";
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * responseObject = [NSURLConnection sendSynchronousRequest:request
+                                          returningResponse:&response
+                                                      error:&error];
+    
+    if (error == nil)
+    {
+        // Parse data here
+        NSData *data = (NSData *)responseObject;
+        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSError *error = nil;
+        NSArray *historyArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+        if (error)
+        {
+            NSLog(@"service error in %@: %@", NSStringFromClass([self class]), error);
+        }
+        
+        NSMutableArray *resultArray = [NSMutableArray array];
+        for (NSDictionary *dic in historyArray)
+        {
+            CurrentCityRequestModel *model = [[CurrentCityRequestModel alloc] initWithDictionary:dic];
+            [resultArray addObject:model];
+        }
+        
+        HistoryRequestModel *model = [[HistoryRequestModel alloc] init];
+        model.historyList = resultArray;
+        NSLog(@"%@", resultArray);
+        NSInteger count = model.historyList.count;
+        NSArray *array = [model.historyList subarrayWithRange:(NSRange) {.location = count - 21, .length = 20}];
+        [GLobalDataManager sharedInstance].historyData = array;
+        self.containerViewController.chartData = [GLobalDataManager sharedInstance].historyData;
+        [self.containerViewController reloadData];
+
+    }
+  */
 }
 
 - (void)viewWillAppear:(BOOL)animated {

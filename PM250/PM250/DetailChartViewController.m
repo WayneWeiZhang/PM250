@@ -27,7 +27,7 @@ CGFloat const kDetailChartViewControllerChartHeaderHeight = 80.0f;
 CGFloat const kDetailChartViewControllerChartHeaderPadding = 10.0f;
 CGFloat const kDetailChartViewControllerChartFooterHeight = 25.0f;
 CGFloat const kDetailChartViewControllerChartFooterPadding = 5.0f;
-CGFloat const kDetailChartViewControllerBarPadding = 5;
+CGFloat const kDetailChartViewControllerBarPadding = 10;
 NSInteger const kDetailChartViewControllerNumBars = 25;
 NSInteger const kDetailChartViewControllerMaxBarHeight = 100; // max random value
 NSInteger const kDetailChartViewControllerMinBarHeight = 20;
@@ -65,18 +65,24 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     }
     [_labelArray removeAllObjects];
     
-    CGFloat fontSize = (self.chartData.count == 25) ? 10.0f : 25.0f;
-    CGFloat paddingY = (self.chartData.count == 25) ? 17.6f : 100.0f;
-    BOOL showCityName = (self.chartData.count == 25) ? YES : NO;
+    CGFloat fontSize = (self.chartData.count == 13) ? 16.0f : 16.0f;
+    CGFloat originY = (self.chartData.count == 13) ? 8.0f : 22.0f;
+    CGFloat paddingY = (self.chartData.count == 13) ? 34.5f : 95.0f;
+    CGFloat pm250originY = (self.chartData.count == 13) ? 8.0f : 22.0f;
+    CGFloat paddingPM250Y = (self.chartData.count == 13) ? 34.5f : 95.0f;
+    BOOL showCityName = (self.chartData.count == 13) ? YES : NO;
     [self.chartData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSString *title = nil;
+        NSString *pm250Value = nil;
         if (showCityName) {
             CityModel *model = obj;
             title = model.name;
+            pm250Value = [NSString stringWithFormat:@"%d",[model.pm2_5 integerValue]];
         }
         else {
             FriendModel *model = obj;
             title = model.name;
+            pm250Value = [NSString stringWithFormat:@"%d",[model.cityModel.pm2_5 integerValue]];
         }
         UILabel *label = [UILabel new];
         label.text = title;
@@ -85,10 +91,23 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
         label.frame = (CGRect) {
             .origin.x = 5.0f,
             .size = label.frame.size,
-            .origin.y = 10.0f + paddingY * idx
+            .origin.y = originY + paddingY * idx
         };
         [_labelArray addObject:label];
         [self.backgroundView addSubview:label];
+        
+        UILabel *pm250Label = [UILabel new];
+        pm250Label.text = pm250Value;
+        pm250Label.font = [UIFont systemFontOfSize:fontSize];
+        pm250Label.textColor = [UIColor whiteColor];
+        [pm250Label sizeToFit];
+        pm250Label.frame = (CGRect) {
+            .origin.x = 60.0f,
+            .size = pm250Label.frame.size,
+            .origin.y = pm250originY + paddingPM250Y * idx
+        };
+        [_labelArray addObject:pm250Label];
+        [self.backgroundView addSubview:pm250Label];
     }];
 }
 
@@ -182,7 +201,7 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 {
     self.friendsDataArray = [FakeDataGenerator getFriends];
     NSArray *cityPM250DataList = [self validateDataArrayFromArray:[GLobalDataManager sharedInstance].cityList];
-    NSArray *first24CityDataList = [cityPM250DataList subarrayWithRange:(NSRange){.location = 0, .length = 24}];
+    NSArray *first24CityDataList = [cityPM250DataList subarrayWithRange:(NSRange){.location = 0, .length = 12}];
     CityModel *cityModel = [self cityModelFromArray:cityPM250DataList WithCityName:@"shanghai"];
     NSArray *dataArray = [first24CityDataList arrayByAddingObject:cityModel];
     self.countryDataArray = dataArray;
@@ -248,7 +267,7 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     self.barChartView.delegate = self;
     self.barChartView.dataSource = self;
     self.barChartView.headerPadding = kDetailChartViewControllerChartHeaderPadding;
-    self.barChartView.backgroundColor = kJBColorBarChartBackground;
+    self.barChartView.backgroundColor = [UIColor whiteColor];
     
     JBBarChartFooterView *footerView = [[JBBarChartFooterView alloc] initWithFrame:CGRectMake(kDetailNumericDefaultPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kDetailChartViewControllerChartFooterHeight * 0.5) + 0.0f, self.view.bounds.size.width - (kDetailNumericDefaultPadding * 2), kDetailChartViewControllerChartFooterHeight)];
     footerView.padding = kDetailChartViewControllerChartFooterPadding;
@@ -266,15 +285,28 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     [self.chartData enumerateObjectsUsingBlock:^(CityModel *cityModel, NSUInteger idx, BOOL *stop) {
         UILabel *label = [UILabel new];
         label.text = cityModel.name;
-        label.font = [UIFont systemFontOfSize:10.0f];
+        label.font = [UIFont systemFontOfSize:16.0f];
         [label sizeToFit];
         label.frame = (CGRect) {
             .origin.x = 5.0f,
             .size = label.frame.size,
-            .origin.y = 6.0f + 17.6f * idx
+            .origin.y = 8.0f + 34.5f * idx
         };
         [_labelArray addObject:label];
         [self.backgroundView addSubview:label];
+        
+        UILabel *pm250Label = [UILabel new];
+        pm250Label.text = [NSString stringWithFormat:@"%d",[cityModel.pm2_5 integerValue]];
+        pm250Label.font = [UIFont systemFontOfSize:16.0f];
+        pm250Label.textColor = [UIColor whiteColor];
+        [pm250Label sizeToFit];
+        pm250Label.frame = (CGRect) {
+            .origin.x = 60.0f,
+            .size = label.frame.size,
+            .origin.y = 8.0f + 34.5f * idx
+        };
+        [_labelArray addObject:pm250Label];
+        [self.backgroundView addSubview:pm250Label];
     }];
 }
 
@@ -321,13 +353,33 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 
 - (NSInteger)barPaddingForBarChartView:(JBBarChartView *)barChartView
 {
-    NSInteger padding = (self.chartData.count == 25) ? kDetailChartViewControllerBarPadding : 30.0f;
+    NSInteger padding = (self.chartData.count == 13) ? kDetailChartViewControllerBarPadding : 30.0f;
     return padding;
 }
 
 - (UIColor *)barColorForBarChartView:(JBBarChartView *)barChartView atIndex:(NSInteger)index
 {
-    return (index % 2 == 0) ? kJBColorBarChartBarBlue : kJBColorBarChartBarGreen;
+    UIColor *barColor = nil;
+    NSInteger height = 0.0f;
+    id data = [self.chartData objectAtIndex:index];
+    if ([data isKindOfClass:CityModel.class]) {
+        CityModel *cityModel = [self.chartData objectAtIndex:index];
+        height = [cityModel.pm2_5 integerValue];
+    }
+    else {
+        FriendModel *friendModel = [self.chartData objectAtIndex:index];
+        height = [friendModel.cityModel.pm2_5 integerValue];
+    }
+    if (height <= 100) {
+        barColor = UIColorFromRGB(0x2BB42A);
+    }
+    else if (height > 100 && height <= 200) {
+        barColor = UIColorFromRGB(0xF5CD00);
+    }
+    else {
+        barColor = UIColorFromRGB(0xF52D00);
+    }
+    return barColor;
 }
 
 - (UIColor *)selectionBarColorForBarChartView:(JBBarChartView *)barChartView

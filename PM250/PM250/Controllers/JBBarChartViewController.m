@@ -13,14 +13,16 @@
 #import "JBChartHeaderView.h"
 #import "JBBarChartFooterView.h"
 #import "JBChartInformationView.h"
-
+#import "FriendModel.h"
+#import "CityModel.h"
+#import "CurrentCityRequestModel.h"
 // Numerics
-CGFloat const kJBBarChartViewControllerChartHeight = 250.0f;
+CGFloat const kJBBarChartViewControllerChartHeight = 220.0f;
 CGFloat const kJBBarChartViewControllerChartHeaderHeight = 80.0f;
 CGFloat const kJBBarChartViewControllerChartHeaderPadding = 10.0f;
 CGFloat const kJBBarChartViewControllerChartFooterHeight = 25.0f;
 CGFloat const kJBBarChartViewControllerChartFooterPadding = 5.0f;
-CGFloat const kJBBarChartViewControllerBarPadding = 1;
+CGFloat const kJBBarChartViewControllerBarPadding = 5;
 NSInteger const kJBBarChartViewControllerNumBars = 12;
 NSInteger const kJBBarChartViewControllerMaxBarHeight = 100; // max random value
 NSInteger const kJBBarChartViewControllerMinBarHeight = 20;
@@ -69,6 +71,7 @@ NSString * const kJBBarChartViewControllerNavButtonViewKey = @"view";
 
 - (void)initFakeData
 {
+    return;
     NSMutableArray *mutableChartData = [NSMutableArray array];
     for (int i=0; i<kJBBarChartViewControllerNumBars; i++)
     {
@@ -91,31 +94,19 @@ NSString * const kJBBarChartViewControllerNavButtonViewKey = @"view";
 {
     [super loadView];
     
-    self.view.backgroundColor = kJBColorBarChartControllerBackground;
+    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = [self chartToggleButtonWithTarget:self action:@selector(chartToggleButtonPressed:)];
 
     self.barChartView = [[JBBarChartView alloc] initWithFrame:CGRectMake(kJBNumericDefaultPadding, kJBNumericDefaultPadding + 0.0f, self.view.bounds.size.width - (kJBNumericDefaultPadding * 2), kJBBarChartViewControllerChartHeight)];
     self.barChartView.delegate = self;
     self.barChartView.dataSource = self;
     self.barChartView.headerPadding = kJBBarChartViewControllerChartHeaderPadding;
-    self.barChartView.backgroundColor = kJBColorBarChartBackground;
-    
-    JBChartHeaderView *headerView = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(kJBNumericDefaultPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBBarChartViewControllerChartHeaderHeight * 0.5) + 0.0f, self.view.bounds.size.width - (kJBNumericDefaultPadding * 2), kJBBarChartViewControllerChartHeaderHeight)];
-    headerView.titleLabel.text = [kJBStringLabelAverageMonthlyRainfall uppercaseString];
-    headerView.subtitleLabel.text = [NSString stringWithFormat:@"%@ - %@", kJBStringLabelSanFrancisco, kJBStringLabel2013];
-    headerView.separatorColor = kJBColorBarChartHeaderSeparatorColor;
-    self.barChartView.headerView = headerView;
+    self.barChartView.backgroundColor = [UIColor whiteColor];
     
     JBBarChartFooterView *footerView = [[JBBarChartFooterView alloc] initWithFrame:CGRectMake(kJBNumericDefaultPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBBarChartViewControllerChartFooterHeight * 0.5) + 0.0f, self.view.bounds.size.width - (kJBNumericDefaultPadding * 2), kJBBarChartViewControllerChartFooterHeight)];
     footerView.padding = kJBBarChartViewControllerChartFooterPadding;
-    footerView.leftLabel.text = [kJBStringLabeJanuary uppercaseString];
-    footerView.leftLabel.textColor = [UIColor whiteColor];
-    footerView.rightLabel.text = [kJBStringLabelDecember uppercaseString];
-    footerView.rightLabel.textColor = [UIColor whiteColor];
+    footerView.backgroundColor = [UIColor whiteColor];
     self.barChartView.footerView = footerView;
-    
-    self.informationView = [[JBChartInformationView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, CGRectGetMaxY(self.barChartView.frame) + 0.0f, self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.barChartView.frame) - CGRectGetMaxY(self.navigationController.navigationBar.frame))];
-    [self.view addSubview:self.informationView];
 
     [self.view addSubview:self.barChartView];
     [self.barChartView reloadData];
@@ -137,14 +128,15 @@ NSString * const kJBBarChartViewControllerNavButtonViewKey = @"view";
 
 - (NSInteger)barChartView:(JBBarChartView *)barChartView heightForBarViewAtAtIndex:(NSInteger)index
 {
-    return [[self.chartData objectAtIndex:index] intValue];
+    CurrentCityRequestModel *currentModel = [self.chartData objectAtIndex:index];
+    return [currentModel.pm2_5 integerValue];
 }
 
 #pragma mark - JBBarChartViewDataSource
 
 - (NSInteger)numberOfBarsInBarChartView:(JBBarChartView *)barChartView
 {
-    return kJBBarChartViewControllerNumBars;
+    return self.chartData.count;
 }
 
 - (NSInteger)barPaddingForBarChartView:(JBBarChartView *)barChartView
@@ -154,7 +146,20 @@ NSString * const kJBBarChartViewControllerNavButtonViewKey = @"view";
 
 - (UIColor *)barColorForBarChartView:(JBBarChartView *)barChartView atIndex:(NSInteger)index
 {
-    return (index % 2 == 0) ? kJBColorBarChartBarBlue : kJBColorBarChartBarGreen;
+    UIColor *barColor = nil;
+    NSInteger height = 0.0f;
+    CurrentCityRequestModel *data = [self.chartData objectAtIndex:index];
+    height = [data.pm2_5 integerValue];
+    if (height <= 100) {
+        barColor = UIColorFromRGB(0x2BB42A);
+    }
+    else if (height > 100 && height <= 200) {
+        barColor = UIColorFromRGB(0xF5CD00);
+    }
+    else {
+        barColor = UIColorFromRGB(0xF52D00);
+    }
+    return barColor;
 }
 
 - (UIColor *)selectionBarColorForBarChartView:(JBBarChartView *)barChartView
@@ -164,15 +169,15 @@ NSString * const kJBBarChartViewControllerNavButtonViewKey = @"view";
 
 - (void)barChartView:(JBBarChartView *)barChartView didSelectBarAtIndex:(NSInteger)index
 {
-    NSNumber *valueNumber = [self.chartData objectAtIndex:index];
-    [self.informationView setValueText:[NSString stringWithFormat:@"%d", [valueNumber intValue]] unitText:kJBStringLabelMm];
-    [self.informationView setTitleText:[self.monthlySymbols objectAtIndex:index]];
-    [self.informationView setHidden:NO animated:YES];
+//    NSNumber *valueNumber = [self.chartData objectAtIndex:index];
+//    [self.informationView setValueText:[NSString stringWithFormat:@"%d", [valueNumber intValue]] unitText:kJBStringLabelMm];
+//    [self.informationView setTitleText:[self.monthlySymbols objectAtIndex:index]];
+//    [self.informationView setHidden:NO animated:YES];
 }
 
 - (void)barChartView:(JBBarChartView *)barChartView didUnselectBarAtIndex:(NSInteger)index
 {
-    [self.informationView setHidden:YES animated:YES];
+//    [self.informationView setHidden:YES animated:YES];
 }
 
 #pragma mark - Buttons

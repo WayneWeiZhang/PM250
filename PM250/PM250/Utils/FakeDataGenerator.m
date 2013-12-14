@@ -62,6 +62,9 @@
     NSArray *citys = [GLobalDataManager sharedInstance].cityList;
     for (CityModel *model in citys)
     {
+        if (model.pm2_5.integerValue < 55) {
+            model.pm2_5 = @55;
+        }
         if ([model.name isEqualToString:@"北京"])
         {
             [[(FriendModel *)tmpArray[0] cityModel] setValue:model.pm2_5 forKey:@"pm2_5"];
