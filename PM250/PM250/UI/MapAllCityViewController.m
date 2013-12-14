@@ -46,6 +46,7 @@
         coor.latitude = [model.lat doubleValue];
         coor.longitude = [model.lng doubleValue];
         BMKCircle *circle = [BMKCircle circleWithCenterCoordinate:coor radius:50000];
+        circle.title = [NSString stringWithFormat:@"%d", [self.destinations indexOfObject:model]];
         [self.mapView addOverlay:circle];
     }
 }
