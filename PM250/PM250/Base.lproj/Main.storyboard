@@ -165,6 +165,14 @@
                                     <segue destination="QEK-Td-q7l" kind="modal" identifier="MapAllCityViewControllerSegue" modalTransitionStyle="flipHorizontal" id="4U3-E4-B2n"/>
                                 </connections>
                             </button>
+                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ui-JL-ua5">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="5vg-mk-na6" kind="embed" id="VjO-U2-npL"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -210,6 +218,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LJx-E5-Q1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="767" y="71"/>
+        </scene>
+        <!--Map Friends View Controller-->
+        <scene sceneID="ZJB-K0-acP">
+            <objects>
+                <viewController restorationIdentifier="MapFriendsViewController" storyboardIdentifier="MapFriendsViewController" automaticallyAdjustsScrollViewInsets="NO" id="5vg-mk-na6" customClass="MapFriendsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CG9-jn-66r"/>
+                        <viewControllerLayoutGuide type="bottom" id="hfn-c6-wqo"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uTZ-Me-xyv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ryt-9h-doI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

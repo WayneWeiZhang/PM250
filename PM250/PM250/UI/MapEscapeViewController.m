@@ -168,10 +168,10 @@
 //}
 
 // 当点击annotation view弹出的泡泡时，调用此接口
-- (void)mapView:(BMKMapView *)mapView annotationViewForBubble:(BMKAnnotationView *)view;
-{
-    NSLog(@"paopaoclick");
-}
+//- (void)mapView:(BMKMapView *)mapView annotationViewForBubble:(BMKAnnotationView *)view;
+//{
+//    NSLog(@"paopaoclick");
+//}
 
 - (void)onGetDrivingRouteResult:(BMKPlanResult *)result errorCode:(int)error
 {
