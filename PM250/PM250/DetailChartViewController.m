@@ -164,10 +164,6 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     NSArray *dataArray = [first24CityDataList arrayByAddingObject:cityModel];
     self.countryDataArray = dataArray;
     self.chartData = dataArray;
-    for (CityModel *model in dataArray) {
-        NSLog(@"model en_name %@", model.ename);
-        NSLog(@"model PM250 %@", model.pm2_5);
-    }
 }
 
 - (void)reloadData {
@@ -175,6 +171,10 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     [self.barChartView reloadData];
     [self.barChartView setState:JBChartViewStateCollapsed];
     [self.barChartView setState:JBChartViewStateExpanded animated:YES callback:nil];
+    
+}
+
+- (IBAction)share:(id)sender {
     
 }
 
