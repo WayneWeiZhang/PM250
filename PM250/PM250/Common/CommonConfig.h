@@ -13,4 +13,7 @@
 #define kWeiXinAppKey               @"wx703dd86403822f19"
 #define kBaiduMapAppKey             @"jpl2MVZZ4SQ0OpMSpdxk2EXw"
 
+#define kAHServiceBaseUrl           @"http://airhit.duapp.com"
+#define KAHServiceUrlCityList       @"citylist"
+
 #endif

@@ -100,11 +100,16 @@
 - (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation
 {
     NSString *AnnotationViewID = @"PM25MARK";
-    BMKPinAnnotationView *annotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationViewID];
-    // 设置颜色
-    ((BMKPinAnnotationView*)annotationView).pinColor = BMKPinAnnotationColorRed;
-    // 从天上掉下效果
-    ((BMKPinAnnotationView*)annotationView).animatesDrop = NO;
+    BMKPinAnnotationView *annotationView = (BMKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:AnnotationViewID];
+    if (annotationView == nil)
+    {
+        BMKPinAnnotationView *annotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationViewID];
+        // 设置颜色
+        ((BMKPinAnnotationView*)annotationView).pinColor = BMKPinAnnotationColorRed;
+        // 从天上掉下效果
+        ((BMKPinAnnotationView*)annotationView).animatesDrop = NO;
+    }
+    
     return annotationView;
     
 }

@@ -40,6 +40,7 @@
     
     self.mapView = [[BMKMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.showsUserLocation = YES;
+    [self.view addSubview:self.mapView];
 }
 
 - (void)viewWillAppear:(BOOL)animated

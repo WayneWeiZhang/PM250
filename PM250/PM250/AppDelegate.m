@@ -10,6 +10,7 @@
 #import <BaiduSocialShare_Internal/BDSocialShareSDK_Internal.h>
 #import "CommonConfig.h"
 #import "BMapKit.h"
+#import "AHCityListRequest.h"
 
 @interface AppDelegate () <BMKGeneralDelegate>
 
@@ -21,6 +22,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //  test
+    AHCityListRequest *request = [[AHCityListRequest alloc] init];
+    [request request:nil method:@"GET" cachePolicy:NO success:^(id responseObject) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
     // Override point for customization after application launch.
     [self initShareCenter];
     [self initMapManager];
@@ -63,7 +72,7 @@
 
 - (void)initShareCenter {
     
-    [BDSocialShareSDK_Internal registerApiKey:kSocialShareAppKey supportSharePlatforms:@[kBD_SOCIAL_SHARE_PLATFORM_SINAWEIBO, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_SESSION, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_TIMELINE, kBD_SOCIAL_SHARE_PLATFORM_EMAIL, kBD_SOCIAL_SHARE_PLATFORM_SMS]];
+    [BDSocialShareSDK_Internal registerApiKey:kSocialShareAppKey supportSharePlatforms:@[kBD_SOCIAL_SHARE_PLATFORM_SINAWEIBO, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_SESSION, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_TIMELINE, kBD_SOCIAL_SHARE_PLATFORM_EMAIL]];
     
     [BDSocialShareSDK_Internal registerWXApp:kWeiXinAppKey];
 }
