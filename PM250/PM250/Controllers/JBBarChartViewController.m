@@ -17,12 +17,12 @@
 #import "CityModel.h"
 #import "CurrentCityRequestModel.h"
 // Numerics
-CGFloat const kJBBarChartViewControllerChartHeight = 250.0f;
+CGFloat const kJBBarChartViewControllerChartHeight = 220.0f;
 CGFloat const kJBBarChartViewControllerChartHeaderHeight = 80.0f;
 CGFloat const kJBBarChartViewControllerChartHeaderPadding = 10.0f;
 CGFloat const kJBBarChartViewControllerChartFooterHeight = 25.0f;
 CGFloat const kJBBarChartViewControllerChartFooterPadding = 5.0f;
-CGFloat const kJBBarChartViewControllerBarPadding = 1;
+CGFloat const kJBBarChartViewControllerBarPadding = 5;
 NSInteger const kJBBarChartViewControllerNumBars = 12;
 NSInteger const kJBBarChartViewControllerMaxBarHeight = 100; // max random value
 NSInteger const kJBBarChartViewControllerMinBarHeight = 20;
@@ -97,7 +97,7 @@ NSString * const kJBBarChartViewControllerNavButtonViewKey = @"view";
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = [self chartToggleButtonWithTarget:self action:@selector(chartToggleButtonPressed:)];
 
-    self.barChartView = [[JBBarChartView alloc] initWithFrame:CGRectMake(kJBNumericDefaultPadding, kJBNumericDefaultPadding + 0.0f, self.view.bounds.size.width - (kJBNumericDefaultPadding * 2), kJBBarChartViewControllerChartHeight + 40.0f)];
+    self.barChartView = [[JBBarChartView alloc] initWithFrame:CGRectMake(kJBNumericDefaultPadding, kJBNumericDefaultPadding + 0.0f, self.view.bounds.size.width - (kJBNumericDefaultPadding * 2), kJBBarChartViewControllerChartHeight)];
     self.barChartView.delegate = self;
     self.barChartView.dataSource = self;
     self.barChartView.headerPadding = kJBBarChartViewControllerChartHeaderPadding;
@@ -128,7 +128,8 @@ NSString * const kJBBarChartViewControllerNavButtonViewKey = @"view";
 
 - (NSInteger)barChartView:(JBBarChartView *)barChartView heightForBarViewAtAtIndex:(NSInteger)index
 {
-    return [[self.chartData objectAtIndex:index] intValue];
+    CurrentCityRequestModel *currentModel = [self.chartData objectAtIndex:index];
+    return [currentModel.pm2_5 integerValue];
 }
 
 #pragma mark - JBBarChartViewDataSource

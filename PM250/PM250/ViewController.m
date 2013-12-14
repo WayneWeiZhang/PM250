@@ -12,9 +12,11 @@
 #import "GLobalDataManager.h"
 #import "AHHistoryRequest.h"
 #import "HistoryRequestModel.h"
-
+#import "CurrentCityRequestModel.h"
 @interface ViewController ()
 @property (nonatomic, weak) JBBarChartViewController *containerViewController;
+@property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (strong, nonatomic) IBOutlet UILabel *PM250Label;
 @end
 
 @implementation ViewController
@@ -33,10 +35,13 @@
                 cachePolicy:NO
                     success:^(HistoryRequestModel *model) {
                         NSInteger count = model.historyList.count;
-                        NSArray *array = [model.historyList subarrayWithRange:(NSRange) {.location = count - 21, .length = 20}];
+                        NSArray *array = [[[model.historyList subarrayWithRange:(NSRange) {.location = count - 11, .length = 10}] reverseObjectEnumerator] allObjects];
                         [GLobalDataManager sharedInstance].historyData = array;
                         self.containerViewController.chartData = [GLobalDataManager sharedInstance].historyData;
                         [self.containerViewController reloadData];
+                        CurrentCityRequestModel *currentCityModel = array.lastObject;
+                        self.backgroundImageView.image = ([currentCityModel.pm2_5 integerValue] < 200) ? [UIImage imageNamed:@"bg_02"] : [UIImage imageNamed:@"bg_01"];
+                        self.PM250Label.text = currentCityModel.pm2_5;
                     }
                     failure:NULL];
 /*
