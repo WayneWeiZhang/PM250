@@ -15,6 +15,7 @@
 @property (copy, nonatomic) NSString *ename;
 @property (copy, nonatomic) NSNumber *lat;
 @property (copy, nonatomic) NSNumber *lng;
+@property (copy, nonatomic) NSNumber *pm2_5;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

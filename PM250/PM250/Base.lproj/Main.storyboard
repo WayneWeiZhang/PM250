@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="1934" y="797"/>
         </scene>
-        <!--Map Friends View Controller-->
+        <!--Map All City View Controller-->
         <scene sceneID="02U-1i-FXp">
             <objects>
-                <viewController restorationIdentifier="MapFriendsViewController" storyboardIdentifier="MapFriendsViewController" id="QEK-Td-q7l" customClass="MapFriendsViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="MapAllCityViewController" storyboardIdentifier="MapAllCityViewController" id="QEK-Td-q7l" customClass="MapAllCityViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="352-5a-BuM"/>
                         <viewControllerLayoutGuide type="bottom" id="tbr-Nw-Ihf"/>
@@ -162,7 +162,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="QEK-Td-q7l" kind="modal" modalTransitionStyle="flipHorizontal" id="4U3-E4-B2n"/>
+                                    <segue destination="QEK-Td-q7l" kind="modal" identifier="MapAllCityViewControllerSegue" modalTransitionStyle="flipHorizontal" id="4U3-E4-B2n"/>
                                 </connections>
                             </button>
                         </subviews>
