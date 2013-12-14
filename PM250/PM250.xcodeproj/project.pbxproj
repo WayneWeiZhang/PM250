@@ -165,6 +165,7 @@
 		13EDCB00185C1675000C0149 /* AHHistoryRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHHistoryRequest.m; sourceTree = "<group>"; };
 		13EDCB02185C175A000C0149 /* AHBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHBaseModel.h; sourceTree = "<group>"; };
 		13EDCB03185C175A000C0149 /* AHBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHBaseModel.m; sourceTree = "<group>"; };
+		13EDCB05185C203F000C0149 /* AHRequestHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHRequestHeader.h; sourceTree = "<group>"; };
 		3F2F90F0B2424E5C8D1D00B6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		4812EEBBE7B54B4B9D8D5A0C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		620CF69E18600570005B8485 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
@@ -442,6 +443,7 @@
 				13EDCAFA185C12EE000C0149 /* AHCurrentCityRequest.m */,
 				13EDCAFF185C1675000C0149 /* AHHistoryRequest.h */,
 				13EDCB00185C1675000C0149 /* AHHistoryRequest.m */,
+				13EDCB05185C203F000C0149 /* AHRequestHeader.h */,
 			);
 			name = Service;
 			path = PM250/Service;
