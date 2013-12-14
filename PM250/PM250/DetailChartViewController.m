@@ -65,9 +65,11 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     }
     [_labelArray removeAllObjects];
     
-    CGFloat fontSize = (self.chartData.count == 13) ? 16.0f : 25.0f;
-    CGFloat paddingY = (self.chartData.count == 13) ? 34.5f : 100.0f;
-    CGFloat paddingPM250Y = (self.chartData.count == 13) ? 34.5f : 100.0f;
+    CGFloat fontSize = (self.chartData.count == 13) ? 16.0f : 16.0f;
+    CGFloat originY = (self.chartData.count == 13) ? 8.0f : 22.0f;
+    CGFloat paddingY = (self.chartData.count == 13) ? 34.5f : 95.0f;
+    CGFloat pm250originY = (self.chartData.count == 13) ? 8.0f : 22.0f;
+    CGFloat paddingPM250Y = (self.chartData.count == 13) ? 34.5f : 95.0f;
     BOOL showCityName = (self.chartData.count == 13) ? YES : NO;
     [self.chartData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSString *title = nil;
@@ -89,7 +91,7 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
         label.frame = (CGRect) {
             .origin.x = 5.0f,
             .size = label.frame.size,
-            .origin.y = 8.0f + paddingY * idx
+            .origin.y = originY + paddingY * idx
         };
         [_labelArray addObject:label];
         [self.backgroundView addSubview:label];
@@ -102,7 +104,7 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
         pm250Label.frame = (CGRect) {
             .origin.x = 60.0f,
             .size = pm250Label.frame.size,
-            .origin.y = 8.0f + paddingPM250Y * idx
+            .origin.y = pm250originY + paddingPM250Y * idx
         };
         [_labelArray addObject:pm250Label];
         [self.backgroundView addSubview:pm250Label];

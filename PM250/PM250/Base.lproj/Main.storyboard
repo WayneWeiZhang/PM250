@@ -118,7 +118,7 @@
                                 <items>
                                     <navigationItem id="e8q-PQ-6su">
                                         <nil key="title"/>
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Gnq-9s-Jd8">
+                                        <barButtonItem key="leftBarButtonItem" title="返回" id="Gnq-9s-Jd8">
                                             <connections>
                                                 <action selector="back:" destination="gld-0u-0cl" id="Z8d-uK-E94"/>
                                             </connections>
