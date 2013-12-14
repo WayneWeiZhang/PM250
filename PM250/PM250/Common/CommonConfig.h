@@ -9,7 +9,8 @@
 #ifndef PM250_CommonConfig_h
 #define PM250_CommonConfig_h
 
-#define kSocialShareAppKey          @"wnHv5gkoYCZAeYgVBiUm3Ql5"
+//#define kSocialShareAppKey          @"wnHv5gkoYCZAeYgVBiUm3Ql5"
+#define kSocialShareAppKey          @"jpl2MVZZ4SQ0OpMSpdxk2EXw"
 #define kWeiXinAppKey               @"wx703dd86403822f19"
 #define kBaiduMapAppKey             @"jpl2MVZZ4SQ0OpMSpdxk2EXw"
 
