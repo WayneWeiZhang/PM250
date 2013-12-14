@@ -54,6 +54,39 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     NSMutableArray *_labelArray;
 }
 
+- (void)configureContentLabels {
+    for (UILabel *label in _labelArray) {
+        [label removeFromSuperview];
+    }
+    [_labelArray removeAllObjects];
+    
+    CGFloat fontSize = (self.chartData.count == 25) ? 10.0f : 25.0f;
+    CGFloat paddingY = (self.chartData.count == 25) ? 17.6f : 100.0f;
+    BOOL showCityName = (self.chartData.count == 25) ? YES : NO;
+    [self.chartData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSString *title = nil;
+        if (showCityName) {
+            CityModel *model = obj;
+            title = model.name;
+        }
+        else {
+            FriendModel *model = obj;
+            title = model.name;
+        }
+        UILabel *label = [UILabel new];
+        label.text = title;
+        label.font = [UIFont systemFontOfSize:fontSize];
+        [label sizeToFit];
+        label.frame = (CGRect) {
+            .origin.x = 5.0f,
+            .size = label.frame.size,
+            .origin.y = 10.0f + paddingY * idx
+        };
+        [_labelArray addObject:label];
+        [self.backgroundView addSubview:label];
+    }];
+}
+
 - (IBAction)segmentDidSelect:(UISegmentedControl *)sender {
     if (sender.selectedSegmentIndex == 0) {
         self.chartData = self.countryDataArray;
@@ -61,7 +94,7 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     else {
         self.chartData = self.friendsDataArray;
     }
-    
+    [self configureContentLabels];
     [self.barChartView reloadData];
     [self.barChartView setState:JBChartViewStateCollapsed];
     [self.barChartView setState:JBChartViewStateExpanded animated:YES callback:nil];
@@ -115,6 +148,7 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     self = [super initWithCoder:decoder];
     if (self) {
         [self initFakeData];
+        _labelArray = [NSMutableArray new];
     }
     return self;
 }
