@@ -110,6 +110,11 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     [self.barChartView reloadData];
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
