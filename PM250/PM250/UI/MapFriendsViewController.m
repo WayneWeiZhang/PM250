@@ -127,23 +127,23 @@
         UIImage *headImage = nil;
         if (index == 0)
         {
-            headImage = [UIImage imageNamed:@"head_0"];
+            headImage = [UIImage imageNamed:@"head_4"];
         }
         else if (index == 1)
         {
-            headImage = [UIImage imageNamed:@"head_3"];
+            headImage = [UIImage imageNamed:@"head_0"];
         }
         else if (index == 2)
         {
-            headImage = [UIImage imageNamed:@"head_2"];
+            headImage = [UIImage imageNamed:@"head_1"];
         }
         else if (index == 3)
         {
-            headImage = [UIImage imageNamed:@"head_1"];
+            headImage = [UIImage imageNamed:@"head_3"];
         }
         else
         {
-            headImage = [UIImage imageNamed:@"head_3"];
+            headImage = [UIImage imageNamed:@"head_2"];
         }
         annotationView.image = headImage;
     }
