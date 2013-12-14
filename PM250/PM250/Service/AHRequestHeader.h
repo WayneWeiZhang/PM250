@@ -13,5 +13,6 @@
 #import "AHCityListRequest.h"
 #import "AHCurrentCityRequest.h"
 #import "AHHistoryRequest.h"
+#import "AHRegisterRequest.h"
 
 #endif

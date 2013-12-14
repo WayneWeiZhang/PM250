@@ -10,6 +10,8 @@
 #import <BaiduSocialShare_Internal/BDSocialShareSDK_Internal.h>
 #import "CommonConfig.h"
 #import "BMapKit.h"
+#import "GTMBase64.h"
+#import "AHRequestHeader.h"
 
 @interface AppDelegate () <BMKGeneralDelegate>
 
