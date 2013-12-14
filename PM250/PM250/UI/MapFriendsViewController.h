@@ -10,6 +10,6 @@
 
 @interface MapFriendsViewController : MapBaseViewController
 
-@property (strong, nonatomic) NSArray *destinations;    //  object is MapLocationModel
+@property (strong, nonatomic) NSArray *destinations;    //  object is cityModel
 
 @end

@@ -12,6 +12,7 @@
 #import "BMapKit.h"
 #import "GTMBase64.h"
 #import "AHRequestHeader.h"
+#import "GLobalDataManager.h"
 
 @interface AppDelegate () <BMKGeneralDelegate>
 
@@ -24,6 +25,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //  test
+    AHCityListRequest *request = [[AHCityListRequest alloc] init];
+    [request request:nil method:@"GET" cachePolicy:NO success:^(CityListRequestModel *model) {
+        [GLobalDataManager sharedInstance].cityList = model.cityList;
+    } failure:^(NSError *error) {
+        
+    }];
     
     // Override point for customization after application launch.
     [self initShareCenter];

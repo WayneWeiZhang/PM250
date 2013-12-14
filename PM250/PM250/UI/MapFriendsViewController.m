@@ -7,6 +7,8 @@
 //
 
 #import "MapFriendsViewController.h"
+#import "CityModel.h"
+#import "GLobalDataManager.h"
 
 @interface MapFriendsViewController ()
 
@@ -27,6 +29,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.destinations = [GLobalDataManager sharedInstance].cityList;
     [self addCircles];
 }
 
@@ -38,9 +41,11 @@
 
 - (void)addCircles
 {
-    for (MapLocationModel *model in self.destinations) {
-        CLLocationCoordinate2D coor = model.location.coordinate;
-        BMKCircle *circle = [BMKCircle circleWithCenterCoordinate:coor radius:5000];
+    for (CityModel *model in self.destinations) {
+        CLLocationCoordinate2D coor;
+        coor.latitude = [model.lat doubleValue];
+        coor.longitude = [model.lng doubleValue];
+        BMKCircle *circle = [BMKCircle circleWithCenterCoordinate:coor radius:50000];
         [self.mapView addOverlay:circle];
     }
 }
@@ -51,12 +56,29 @@
     {
         BMKCircleView* circleView = [[BMKCircleView alloc] initWithOverlay:overlay];
         circleView.fillColor = [[UIColor redColor] colorWithAlphaComponent:0.5];
-        circleView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
-        circleView.lineWidth = 5.0;
+//        circleView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
+//        circleView.lineWidth = 5.0;
 		return circleView;
     }
 	
 	return nil;
+}
+
+- (void)mapView:(BMKMapView *)mapView didUpdateUserLocation:(BMKUserLocation *)userLocation
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        self.mapView.centerCoordinate = userLocation.location.coordinate;
+        self.mapView.showsUserLocation = NO;
+        [self.mapView setRegion: BMKCoordinateRegionMakeWithDistance(self.mapView.centerCoordinate, 800000.0f, 800000.0f)
+                       animated: YES];
+        
+//        [self.mapView removeOverlays:self.mapView.overlays];
+//        [self.mapView removeAnnotations:self.mapView.annotations];
+//        [self addPointAnnotation];
+//        [self addEscapeLines];
+    });
 }
 
 @end
