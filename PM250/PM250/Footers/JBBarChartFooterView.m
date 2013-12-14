@@ -136,61 +136,61 @@ static UIColor *kJBBarChartFooterPolygonViewDefaultBackgroundColor = nil;
 {
     [super drawRect:rect];
     
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    // Background gradient
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGFloat locations[] = { 0.0, 1.0 };
-    
-    NSAssert([self.delegate respondsToSelector:@selector(backgroundColorForChartFooterPolygonView:)], @"JBChartFooterPolygonView // delegate must implement - (UIColor *)backgroundColorForChartFooterPolygonView");
-    NSAssert([self.delegate respondsToSelector:@selector(paddingForChartFooterPolygonView:)], @"JBChartFooterPolygonView // delegate must implement - (CGFloat)paddingForChartFooterPolygonView");
-
-    UIColor *bgColor = [self.delegate backgroundColorForChartFooterPolygonView:self];
-    
-    NSArray *colors = @[(__bridge id)bgColor.CGColor, (__bridge id)bgColor.CGColor];
-    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef) colors, locations);
-    
-    // Polygon shape
-    CGFloat xOffset = self.bounds.origin.x;
-    CGFloat width = self.bounds.size.width;
-    CGFloat height = self.bounds.size.height;
-    CGFloat padding = [self.delegate paddingForChartFooterPolygonView:self];
-    NSArray *polygonPoints = @[[NSValue valueWithCGPoint:CGPointMake(xOffset, height)],
-                               [NSValue valueWithCGPoint:CGPointMake(xOffset, kJBBarChartFooterPolygonViewArrowHeight)],
-                               [NSValue valueWithCGPoint:CGPointMake(xOffset + padding, kJBBarChartFooterPolygonViewArrowHeight)],
-                               [NSValue valueWithCGPoint:CGPointMake(xOffset + padding + ceil(kJBBarChartFooterPolygonViewArrowWidth * 0.5), 0)],
-                               [NSValue valueWithCGPoint:CGPointMake(xOffset + padding + kJBBarChartFooterPolygonViewArrowWidth, kJBBarChartFooterPolygonViewArrowHeight)],
-                               [NSValue valueWithCGPoint:CGPointMake(width - padding - kJBBarChartFooterPolygonViewArrowWidth, kJBBarChartFooterPolygonViewArrowHeight)],
-                               [NSValue valueWithCGPoint:CGPointMake(width - padding - ceil(kJBBarChartFooterPolygonViewArrowWidth * 0.5), 0.0)],
-                               [NSValue valueWithCGPoint:CGPointMake(width - padding, kJBBarChartFooterPolygonViewArrowHeight)],
-                               [NSValue valueWithCGPoint:CGPointMake(width, kJBBarChartFooterPolygonViewArrowHeight)],
-                               [NSValue valueWithCGPoint:CGPointMake(width, height)],
-                               [NSValue valueWithCGPoint:CGPointMake(xOffset, height)]];
-    
-    // Draw polygon
-    NSValue *pointValue = polygonPoints[0];
-    CGContextSaveGState(context);
-    {
-        NSInteger index = 0;
-        for (pointValue in polygonPoints)
-        {
-            CGPoint point = [pointValue CGPointValue];
-            if (index == 0)
-            {
-                CGContextMoveToPoint(context, point.x, point.y);
-            }
-            else
-            {
-                CGContextAddLineToPoint(context, point.x, point.y);
-            }
-            index++;
-        }
-        CGContextClip(context);
-        CGContextDrawLinearGradient(context, gradient, CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect)), CGPointMake(CGRectGetMidX(rect), CGRectGetMaxY(rect)), 0);
-    }
-    CGContextRestoreGState(context);
-	CGGradientRelease(gradient);
-	CGColorSpaceRelease(colorSpace);
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    
+//    // Background gradient
+//    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+//    CGFloat locations[] = { 0.0, 1.0 };
+//    
+//    NSAssert([self.delegate respondsToSelector:@selector(backgroundColorForChartFooterPolygonView:)], @"JBChartFooterPolygonView // delegate must implement - (UIColor *)backgroundColorForChartFooterPolygonView");
+//    NSAssert([self.delegate respondsToSelector:@selector(paddingForChartFooterPolygonView:)], @"JBChartFooterPolygonView // delegate must implement - (CGFloat)paddingForChartFooterPolygonView");
+//
+//    UIColor *bgColor = [self.delegate backgroundColorForChartFooterPolygonView:self];
+//    
+//    NSArray *colors = @[(__bridge id)bgColor.CGColor, (__bridge id)bgColor.CGColor];
+//    CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef) colors, locations);
+//    
+//    // Polygon shape
+//    CGFloat xOffset = self.bounds.origin.x;
+//    CGFloat width = self.bounds.size.width;
+//    CGFloat height = self.bounds.size.height;
+//    CGFloat padding = [self.delegate paddingForChartFooterPolygonView:self];
+//    NSArray *polygonPoints = @[[NSValue valueWithCGPoint:CGPointMake(xOffset, height)],
+//                               [NSValue valueWithCGPoint:CGPointMake(xOffset, kJBBarChartFooterPolygonViewArrowHeight)],
+//                               [NSValue valueWithCGPoint:CGPointMake(xOffset + padding, kJBBarChartFooterPolygonViewArrowHeight)],
+//                               [NSValue valueWithCGPoint:CGPointMake(xOffset + padding + ceil(kJBBarChartFooterPolygonViewArrowWidth * 0.5), 0)],
+//                               [NSValue valueWithCGPoint:CGPointMake(xOffset + padding + kJBBarChartFooterPolygonViewArrowWidth, kJBBarChartFooterPolygonViewArrowHeight)],
+//                               [NSValue valueWithCGPoint:CGPointMake(width - padding - kJBBarChartFooterPolygonViewArrowWidth, kJBBarChartFooterPolygonViewArrowHeight)],
+//                               [NSValue valueWithCGPoint:CGPointMake(width - padding - ceil(kJBBarChartFooterPolygonViewArrowWidth * 0.5), 0.0)],
+//                               [NSValue valueWithCGPoint:CGPointMake(width - padding, kJBBarChartFooterPolygonViewArrowHeight)],
+//                               [NSValue valueWithCGPoint:CGPointMake(width, kJBBarChartFooterPolygonViewArrowHeight)],
+//                               [NSValue valueWithCGPoint:CGPointMake(width, height)],
+//                               [NSValue valueWithCGPoint:CGPointMake(xOffset, height)]];
+//    
+//    // Draw polygon
+//    NSValue *pointValue = polygonPoints[0];
+//    CGContextSaveGState(context);
+//    {
+//        NSInteger index = 0;
+//        for (pointValue in polygonPoints)
+//        {
+//            CGPoint point = [pointValue CGPointValue];
+//            if (index == 0)
+//            {
+//                CGContextMoveToPoint(context, point.x, point.y);
+//            }
+//            else
+//            {
+//                CGContextAddLineToPoint(context, point.x, point.y);
+//            }
+//            index++;
+//        }
+//        CGContextClip(context);
+//        CGContextDrawLinearGradient(context, gradient, CGPointMake(CGRectGetMidX(rect), CGRectGetMinY(rect)), CGPointMake(CGRectGetMidX(rect), CGRectGetMaxY(rect)), 0);
+//    }
+//    CGContextRestoreGState(context);
+//	CGGradientRelease(gradient);
+//	CGColorSpaceRelease(colorSpace);
 }
 
 @end

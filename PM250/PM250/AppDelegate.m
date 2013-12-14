@@ -12,6 +12,7 @@
 #import "BMapKit.h"
 #import "GTMBase64.h"
 #import "AHRequestHeader.h"
+#import "AHCurrentCityRequest.h"
 #import "GLobalDataManager.h"
 
 @interface AppDelegate () <BMKGeneralDelegate>

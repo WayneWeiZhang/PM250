@@ -15,7 +15,7 @@
 #import "MapAllCityViewController.h"
 #import "MapFriendsViewController.h"
 #import "GLobalDataManager.h"
-
+#import "CityModel.h"
 // Numerics
 CGFloat const kDetailChartViewControllerChartHeight = 300.0f;
 CGFloat const kDetailChartViewControllerChartHeaderHeight = 80.0f;
@@ -23,7 +23,7 @@ CGFloat const kDetailChartViewControllerChartHeaderPadding = 10.0f;
 CGFloat const kDetailChartViewControllerChartFooterHeight = 25.0f;
 CGFloat const kDetailChartViewControllerChartFooterPadding = 5.0f;
 CGFloat const kDetailChartViewControllerBarPadding = 5;
-NSInteger const kDetailChartViewControllerNumBars = 30;
+NSInteger const kDetailChartViewControllerNumBars = 25;
 NSInteger const kDetailChartViewControllerMaxBarHeight = 100; // max random value
 NSInteger const kDetailChartViewControllerMinBarHeight = 20;
 
@@ -45,8 +45,27 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 @end
 
 @implementation DetailChartViewController
-#pragma mark - Alloc/Init
+- (NSArray *)validateDataArrayFromArray:(NSArray *)dataArray {
+    NSIndexSet *indexes = [dataArray indexesOfObjectsWithOptions:NSEnumerationConcurrent
+                                                     passingTest:^BOOL(CityModel *model, NSUInteger idx, BOOL *stop) {
+                                                         return ([model.pm2_5 integerValue] > 0);
+                                                     }];
+    NSArray *filteredArray = [dataArray objectsAtIndexes:indexes];
+    return filteredArray;
+}
 
+- (CityModel *)cityModelFromArray:(NSArray *)dataArray WithCityName:(NSString *)cityName {
+    CityModel *cityModel = nil;
+    NSIndexSet *indexes = [dataArray indexesOfObjectsWithOptions:NSEnumerationConcurrent
+                                                       passingTest:^BOOL(CityModel *model, NSUInteger idx, BOOL *stop) {
+                                                           return [model.ename isEqualToString:cityName];
+                                                       }];
+    NSArray *filteredArray = [dataArray objectsAtIndexes:indexes];
+    cityModel = filteredArray.firstObject;
+    return cityModel;
+}
+
+#pragma mark - Alloc/Init
 - (id)init
 {
     self = [super init];
@@ -69,12 +88,15 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 
 - (void)initFakeData
 {
-    NSMutableArray *mutableChartData = [NSMutableArray array];
-    for (int i=0; i<kDetailChartViewControllerNumBars; i++)
-    {
-        [mutableChartData addObject:[NSNumber numberWithInteger:MAX(kDetailChartViewControllerMinBarHeight, arc4random() % kDetailChartViewControllerMaxBarHeight)]]; // fake height
+    NSArray *cityPM250DataList = [self validateDataArrayFromArray:[GLobalDataManager sharedInstance].cityList];
+    NSArray *first24CityDataList = [cityPM250DataList subarrayWithRange:(NSRange){.location = 0, .length = 24}];
+    CityModel *cityModel = [self cityModelFromArray:cityPM250DataList WithCityName:@"shanghai"];
+    NSArray *dataArray = [first24CityDataList arrayByAddingObject:cityModel];
+    self.chartData = dataArray;
+    for (CityModel *model in dataArray) {
+        NSLog(@"model en_name %@", model.ename);
+        NSLog(@"model PM250 %@", model.pm2_5);
     }
-    _chartData = [NSArray arrayWithArray:mutableChartData];
 }
 
 - (void)reloadData {
@@ -113,6 +135,10 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     [self.barChartView reloadData];
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -129,7 +155,8 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 
 - (NSInteger)barChartView:(JBBarChartView *)barChartView heightForBarViewAtAtIndex:(NSInteger)index
 {
-    return [[self.chartData objectAtIndex:index] intValue];
+    CityModel *cityModel = [self.chartData objectAtIndex:index];
+    return [cityModel.pm2_5 integerValue];
 }
 
 #pragma mark - JBBarChartViewDataSource
