@@ -7,6 +7,7 @@
 //
 
 #import "MapFriendsViewController.h"
+#import "FriendModel.h"
 
 @interface MapFriendsViewController ()
 
@@ -27,7 +28,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self addCircles];
+    NSMutableArray *tmpCitys = [NSMutableArray array];
+    for (FriendModel *model in self.friends)
+    {
+//        model.cityModel =
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,27 +41,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)addCircles
-{
-    for (MapLocationModel *model in self.destinations) {
-        CLLocationCoordinate2D coor = model.location.coordinate;
-        BMKCircle *circle = [BMKCircle circleWithCenterCoordinate:coor radius:5000];
-        [self.mapView addOverlay:circle];
-    }
-}
+//- (void)addFriends
 
-- (BMKOverlayView *)mapView:(BMKMapView *)mapView viewForOverlay:(id <BMKOverlay>)overlay
-{
-	if ([overlay isKindOfClass:[BMKCircle class]])
-    {
-        BMKCircleView* circleView = [[BMKCircleView alloc] initWithOverlay:overlay];
-        circleView.fillColor = [[UIColor redColor] colorWithAlphaComponent:0.5];
-        circleView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
-        circleView.lineWidth = 5.0;
-		return circleView;
-    }
-	
-	return nil;
-}
+//- (BMKAnnotationView *)mapView:(BMKMapView *)view viewForAnnotation:(id <BMKAnnotation>)annotation
+//{
+//	if ([annotation isKindOfClass:[RouteAnnotation class]]) {
+//		return [self getRouteAnnotationView:view viewForAnnotation:(RouteAnnotation*)annotation];
+//	}
+//	return nil;
+//}
 
 @end

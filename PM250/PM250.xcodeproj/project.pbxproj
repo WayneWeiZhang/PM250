@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		13998914185C3269008B4D80 /* RouteAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 13998913185C3269008B4D80 /* RouteAnnotation.m */; };
 		13998917185C32AF008B4D80 /* UIImage+AHRotated.m in Sources */ = {isa = PBXBuildFile; fileRef = 13998916185C32AF008B4D80 /* UIImage+AHRotated.m */; };
+		1399891A185C3814008B4D80 /* GLobalDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 13998919185C3814008B4D80 /* GLobalDataManager.m */; };
+		1399891D185C4452008B4D80 /* MapAllCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1399891C185C4452008B4D80 /* MapAllCityViewController.m */; };
+		13998920185C49FB008B4D80 /* FriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1399891F185C49FB008B4D80 /* FriendModel.m */; };
 		139C3462185B1AC300DB2849 /* BaiduSocialShare_Internal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139C3451185B1AC300DB2849 /* BaiduSocialShare_Internal.framework */; };
 		139C3463185B1AC300DB2849 /* BaiduSocialShareSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 139C3452185B1AC300DB2849 /* BaiduSocialShareSource.bundle */; };
 		139C3464185B1AC300DB2849 /* TencentOpenAPI in Frameworks */ = {isa = PBXBuildFile; fileRef = 139C345A185B1AC300DB2849 /* TencentOpenAPI */; };
@@ -82,6 +85,12 @@
 		13998913185C3269008B4D80 /* RouteAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteAnnotation.m; sourceTree = "<group>"; };
 		13998915185C32AF008B4D80 /* UIImage+AHRotated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AHRotated.h"; sourceTree = "<group>"; };
 		13998916185C32AF008B4D80 /* UIImage+AHRotated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AHRotated.m"; sourceTree = "<group>"; };
+		13998918185C3814008B4D80 /* GLobalDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLobalDataManager.h; sourceTree = "<group>"; };
+		13998919185C3814008B4D80 /* GLobalDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLobalDataManager.m; sourceTree = "<group>"; };
+		1399891B185C4452008B4D80 /* MapAllCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAllCityViewController.h; sourceTree = "<group>"; };
+		1399891C185C4452008B4D80 /* MapAllCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAllCityViewController.m; sourceTree = "<group>"; };
+		1399891E185C49FB008B4D80 /* FriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendModel.h; sourceTree = "<group>"; };
+		1399891F185C49FB008B4D80 /* FriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendModel.m; sourceTree = "<group>"; };
 		139C3451185B1AC300DB2849 /* BaiduSocialShare_Internal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduSocialShare_Internal.framework; sourceTree = "<group>"; };
 		139C3452185B1AC300DB2849 /* BaiduSocialShareSource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BaiduSocialShareSource.bundle; sourceTree = "<group>"; };
 		139C3454185B1AC300DB2849 /* QQApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQApi.h; sourceTree = "<group>"; };
@@ -331,6 +340,8 @@
 				139C346D185B1C3300DB2849 /* LocationHelper.m */,
 				13998915185C32AF008B4D80 /* UIImage+AHRotated.h */,
 				13998916185C32AF008B4D80 /* UIImage+AHRotated.m */,
+				13998918185C3814008B4D80 /* GLobalDataManager.h */,
+				13998919185C3814008B4D80 /* GLobalDataManager.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -419,6 +430,8 @@
 				139C34AE185B35D600DB2849 /* MapFriendsViewController.m */,
 				13998912185C3269008B4D80 /* RouteAnnotation.h */,
 				13998913185C3269008B4D80 /* RouteAnnotation.m */,
+				1399891B185C4452008B4D80 /* MapAllCityViewController.h */,
+				1399891C185C4452008B4D80 /* MapAllCityViewController.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -438,6 +451,8 @@
 				13EDCAFD185C1626000C0149 /* HistoryRequestModel.m */,
 				13EDCB02185C175A000C0149 /* AHBaseModel.h */,
 				13EDCB03185C175A000C0149 /* AHBaseModel.m */,
+				1399891E185C49FB008B4D80 /* FriendModel.h */,
+				1399891F185C49FB008B4D80 /* FriendModel.m */,
 			);
 			name = Model;
 			path = PM250/Model;
@@ -781,8 +796,10 @@
 				13EDCAF5185C1170000C0149 /* CurrentCityRequestModel.m in Sources */,
 				8ED9363918599BE9005DA655 /* ViewController.m in Sources */,
 				8E9620CB185AB4A40059B468 /* ChartViewController.m in Sources */,
+				1399891D185C4452008B4D80 /* MapAllCityViewController.m in Sources */,
 				8E962106185ADB8B0059B468 /* JBBaseTableViewController.m in Sources */,
 				8E96210A185ADB8B0059B468 /* JBLineChartViewController.m in Sources */,
+				13998920185C49FB008B4D80 /* FriendModel.m in Sources */,
 				139C34B6185C014400DB2849 /* CityModel.m in Sources */,
 				13EDCAFB185C12EE000C0149 /* AHCurrentCityRequest.m in Sources */,
 				139C346E185B1C3300DB2849 /* LocationHelper.m in Sources */,
@@ -799,6 +816,7 @@
 				8E9620E6185ADB220059B468 /* JBChartTableCell.m in Sources */,
 				8E9620E7185ADB220059B468 /* JBBarChartFooterView.m in Sources */,
 				13998917185C32AF008B4D80 /* UIImage+AHRotated.m in Sources */,
+				1399891A185C3814008B4D80 /* GLobalDataManager.m in Sources */,
 				8E9620E9185ADB220059B468 /* JBChartHeaderView.m in Sources */,
 				13998914185C3269008B4D80 /* RouteAnnotation.m in Sources */,
 				8ED9362F18599BE9005DA655 /* main.m in Sources */,

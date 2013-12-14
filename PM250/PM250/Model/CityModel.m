@@ -19,6 +19,7 @@
         self.ename = [dictionary objectForKey:@"ename"];
         self.lat = [dictionary objectForKey:@"lat"];
         self.lng = [dictionary objectForKey:@"lng"];
+        self.pm2_5 = [dictionary objectForKey:@"pm2_5"];
     }
     
     return self;
