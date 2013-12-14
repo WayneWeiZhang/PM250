@@ -9,8 +9,17 @@
 #import "MapBaseViewController.h"
 #import "MapAllCityViewController.h"
 
+typedef NS_ENUM(NSInteger, MapFriendsViewControllerType)
+{
+    MapFriendsViewControllerTypeCity        =   0,
+    MapFriendsViewControllerTypeFriends
+};
+
 @interface MapFriendsViewController : MapAllCityViewController
 
+@property (assign, nonatomic) MapFriendsViewControllerType type;
 @property (strong, nonatomic) NSArray *friends;
+
+- (void)refresh;
 
 @end

@@ -29,8 +29,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.destinations = [GLobalDataManager sharedInstance].cityList;
-    [self addCircles];
+//    self.destinations = [GLobalDataManager sharedInstance].cityList;
+//    [self addCircles];
 }
 
 - (void)didReceiveMemoryWarning

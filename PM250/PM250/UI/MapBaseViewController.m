@@ -35,9 +35,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.userLocation = [[BMKUserLocation alloc] init];
-    self.userLocation.delegate = self;
-    
     self.mapView = [[BMKMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.showsUserLocation = YES;
     [self.view addSubview:self.mapView];
