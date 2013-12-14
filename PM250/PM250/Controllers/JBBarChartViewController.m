@@ -169,15 +169,15 @@ NSString * const kJBBarChartViewControllerNavButtonViewKey = @"view";
 
 - (void)barChartView:(JBBarChartView *)barChartView didSelectBarAtIndex:(NSInteger)index
 {
-    NSNumber *valueNumber = [self.chartData objectAtIndex:index];
-    [self.informationView setValueText:[NSString stringWithFormat:@"%d", [valueNumber intValue]] unitText:kJBStringLabelMm];
-    [self.informationView setTitleText:[self.monthlySymbols objectAtIndex:index]];
-    [self.informationView setHidden:NO animated:YES];
+//    NSNumber *valueNumber = [self.chartData objectAtIndex:index];
+//    [self.informationView setValueText:[NSString stringWithFormat:@"%d", [valueNumber intValue]] unitText:kJBStringLabelMm];
+//    [self.informationView setTitleText:[self.monthlySymbols objectAtIndex:index]];
+//    [self.informationView setHidden:NO animated:YES];
 }
 
 - (void)barChartView:(JBBarChartView *)barChartView didUnselectBarAtIndex:(NSInteger)index
 {
-    [self.informationView setHidden:YES animated:YES];
+//    [self.informationView setHidden:YES animated:YES];
 }
 
 #pragma mark - Buttons
