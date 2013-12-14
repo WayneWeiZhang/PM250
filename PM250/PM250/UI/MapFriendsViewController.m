@@ -121,9 +121,31 @@
     NSUInteger index = [[(BMKPointAnnotation *)annotation title] integerValue];
     if (index < self.friends.count)
     {
-        FriendModel *friendModel = self.friends[index];
-        NSData *data = [NSData dataWithContentsOfURL:friendModel.imageUrl];
-        annotationView.image = [UIImage imageWithData:data];
+//        FriendModel *friendModel = self.friends[index];
+//        NSData *data = [NSData dataWithContentsOfURL:friendModel.imageUrl];
+//        annotationView.image = [UIImage imageWithData:data scale:0.1];
+        UIImage *headImage = nil;
+        if (index == 0)
+        {
+            headImage = [UIImage imageNamed:@"head_0"];
+        }
+        else if (index == 1)
+        {
+            headImage = [UIImage imageNamed:@"head_3"];
+        }
+        else if (index == 2)
+        {
+            headImage = [UIImage imageNamed:@"head_2"];
+        }
+        else if (index == 3)
+        {
+            headImage = [UIImage imageNamed:@"head_1"];
+        }
+        else
+        {
+            headImage = [UIImage imageNamed:@"head_3"];
+        }
+        annotationView.image = headImage;
     }
     
     
