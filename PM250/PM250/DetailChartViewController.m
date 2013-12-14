@@ -36,7 +36,8 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 
 @property (nonatomic, strong) JBBarChartView *barChartView;
 @property (nonatomic, strong) JBChartInformationView *informationView;
-
+@property (strong, nonatomic) IBOutlet UIView *backgroundView;
+@property (nonatomic, weak) MapAllCityViewController *allCityViewController;
 // Buttons
 - (void)chartToggleButtonPressed:(id)sender;
 
@@ -44,8 +45,10 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 - (void)initFakeData;
 @end
 
-@implementation DetailChartViewController {
-    UIView *_backgroundView;
+@implementation DetailChartViewController
+- (IBAction)toMapMode:(id)sender {
+    self.backgroundView.hidden = YES;
+    self.allCityViewController.view.hidden = NO;
 }
 
 - (NSArray *)validateDataArrayFromArray:(NSArray *)dataArray {
@@ -100,8 +103,6 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
         NSLog(@"model en_name %@", model.ename);
         NSLog(@"model PM250 %@", model.pm2_5);
     }
-    [self.chartData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-    }];
 }
 
 - (void)reloadData {
@@ -121,11 +122,6 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 {
     [super loadView];
     
-    _backgroundView = [[UIView alloc] initWithFrame:(CGRect) {.origin.x = 0.0f, .origin.y = 64.0f, .size.width = CGRectGetWidth(self.view.frame), .size.height = CGRectGetHeight(self.view.frame) - 64.0f}];
-    _backgroundView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:_backgroundView];
-    self.view.backgroundColor = [UIColor whiteColor];
-    
     self.barChartView = [[JBBarChartView alloc] initWithFrame:CGRectMake(kDetailNumericDefaultPadding + 20.0f, kDetailNumericDefaultPadding + 134.0f, self.view.bounds.size.width - (kDetailNumericDefaultPadding * 2), kDetailChartViewControllerChartHeight)];
     self.barChartView.delegate = self;
     self.barChartView.dataSource = self;
@@ -142,12 +138,27 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     
     self.barChartView.transform = CGAffineTransformMakeRotation(M_PI_2);
     
-    [_backgroundView addSubview:self.barChartView];
+    [self.backgroundView addSubview:self.barChartView];
     [self.barChartView reloadData];
+    
+    [self.chartData enumerateObjectsUsingBlock:^(CityModel *cityModel, NSUInteger idx, BOOL *stop) {
+        UILabel *label = [UILabel new];
+        label.text = cityModel.name;
+        label.font = [UIFont systemFontOfSize:10.0f];
+        [label sizeToFit];
+        label.frame = (CGRect) {
+            .origin.x = 5.0f,
+            .size = label.frame.size,
+            .origin.y = 6.0f + 17.6f * idx
+        };
+        NSLog(@"LABEL FRAME %@", NSStringFromCGRect(label.frame));
+        [self.backgroundView addSubview:label];
+    }];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.allCityViewController.view.hidden = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -221,6 +232,7 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
     {
         MapAllCityViewController *vc = segue.destinationViewController;
         vc.destinations = [GLobalDataManager sharedInstance].cityList;
+        self.allCityViewController = vc;
     }
 }
 

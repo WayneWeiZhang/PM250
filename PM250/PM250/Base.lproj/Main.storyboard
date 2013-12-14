@@ -79,46 +79,6 @@
             </objects>
             <point key="canvasLocation" x="1934" y="797"/>
         </scene>
-        <!--Map All City View Controller-->
-        <scene sceneID="02U-1i-FXp">
-            <objects>
-                <viewController restorationIdentifier="MapAllCityViewController" storyboardIdentifier="MapAllCityViewController" id="QEK-Td-q7l" customClass="MapAllCityViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="352-5a-BuM"/>
-                        <viewControllerLayoutGuide type="bottom" id="tbr-Nw-Ihf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Y7p-Bz-aGe">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hA9-Jf-rEF">
-                                <rect key="frame" x="0.0" y="21" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem id="5Ak-3r-yXI">
-                                        <nil key="title"/>
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="qPO-Bl-0BJ"/>
-                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="L0Z-hq-i0m">
-                                            <rect key="frame" x="120" y="8" width="81" height="29"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <segments>
-                                                <segment title="全国"/>
-                                                <segment title="好友"/>
-                                            </segments>
-                                        </segmentedControl>
-                                        <barButtonItem key="rightBarButtonItem" title="分享" id="GcI-Uo-JQX"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="f8W-OD-4Ve"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GUj-0W-inN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1934" y="71"/>
-        </scene>
         <!--Detail Chart View Controller-->
         <scene sceneID="OVH-LL-wQf">
             <objects>
@@ -154,17 +114,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1z-IQ-KbY">
-                                <rect key="frame" x="245" y="524" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="地图模式">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="QEK-Td-q7l" kind="modal" identifier="MapAllCityViewControllerSegue" modalTransitionStyle="flipHorizontal" id="4U3-E4-B2n"/>
-                                </connections>
-                            </button>
                             <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ui-JL-ua5">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -173,10 +122,31 @@
                                     <segue destination="5vg-mk-na6" kind="embed" id="VjO-U2-npL"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s6S-Fj-gnu">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1z-IQ-KbY">
+                                        <rect key="frame" x="247" y="454" width="60" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="地图模式">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toMapMode:" destination="gld-0u-0cl" eventType="touchUpInside" id="YhC-jZ-jTj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="yYv-93-Dg2"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="s6S-Fj-gnu" id="iGl-y0-eUe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HP9-gI-IED" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
