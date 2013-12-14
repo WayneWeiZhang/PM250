@@ -31,7 +31,7 @@
         [GLobalDataManager sharedInstance].cityList = model.cityList;
     } failure:^(NSError *error) {
         
-    }];
+    }];    
     
     // Override point for customization after application launch.
     [self initShareCenter];

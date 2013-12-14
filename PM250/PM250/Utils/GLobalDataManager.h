@@ -11,6 +11,7 @@
 @interface GLobalDataManager : NSObject
 
 @property (strong, nonatomic) NSArray *cityList;
+@property (nonatomic, copy) NSArray *historyData;
 
 + (GLobalDataManager *)sharedInstance;
 

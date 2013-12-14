@@ -294,7 +294,27 @@ NSString * const kDetailChartViewControllerNavButtonViewKey = @"view";
 
 - (UIColor *)barColorForBarChartView:(JBBarChartView *)barChartView atIndex:(NSInteger)index
 {
-    return (index % 2 == 0) ? kJBColorBarChartBarBlue : kJBColorBarChartBarGreen;
+    UIColor *barColor = nil;
+    NSInteger height = 0.0f;
+    id data = [self.chartData objectAtIndex:index];
+    if ([data isKindOfClass:CityModel.class]) {
+        CityModel *cityModel = [self.chartData objectAtIndex:index];
+        height = [cityModel.pm2_5 integerValue];
+    }
+    else {
+        FriendModel *friendModel = [self.chartData objectAtIndex:index];
+        height = [friendModel.cityModel.pm2_5 integerValue];
+    }
+    if (height <= 100) {
+        barColor = UIColorFromRGB(0x2BB42A);
+    }
+    else if (height > 100 && height <= 200) {
+        barColor = UIColorFromRGB(0xF5CD00);
+    }
+    else {
+        barColor = UIColorFromRGB(0xF52D00);
+    }
+    return barColor;
 }
 
 - (UIColor *)selectionBarColorForBarChartView:(JBBarChartView *)barChartView
