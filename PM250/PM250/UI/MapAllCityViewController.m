@@ -58,7 +58,23 @@
         BMKCircleView* circleView = [[BMKCircleView alloc] initWithOverlay:overlay];
         
         //  todo: change colors
-        circleView.fillColor = [[UIColor redColor] colorWithAlphaComponent:0.5];
+        NSUInteger index = [[(BMKCircle *)overlay title] integerValue];
+        CityModel *cityModel = self.destinations[index];
+        NSInteger pm2_5 = [cityModel.pm2_5 integerValue];
+        UIColor *fillColor = nil;
+        if (pm2_5 <= 100) {
+            fillColor = [UIColor colorWithRed:0x2b / 255.f green:0xb4 / 255.f blue:0x2a / 255.f alpha:0.5];
+        }
+        else if (pm2_5 > 100 && pm2_5 <= 200) {
+            fillColor = [UIColor colorWithRed:0xf5 / 255.f green:0xcd / 255.f blue:0x00 / 255.f alpha:0.5];
+//            fillColor = UIColorFromRGB(0xF5CD00);
+        }
+        else {
+            fillColor = [UIColor colorWithRed:0xf5 / 255.f green:0x2d / 255.f blue:0x00 / 255.f alpha:0.5];
+//            fillColor = UIColorFromRGB(0xF52D00);
+        }
+        
+        circleView.fillColor = fillColor;
         //        circleView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
         //        circleView.lineWidth = 5.0;
 		return circleView;

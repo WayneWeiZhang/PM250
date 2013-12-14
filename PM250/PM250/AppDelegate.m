@@ -77,7 +77,7 @@
 
 - (void)initShareCenter {
     
-    [BDSocialShareSDK_Internal registerApiKey:kSocialShareAppKey supportSharePlatforms:@[kBD_SOCIAL_SHARE_PLATFORM_SINAWEIBO, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_SESSION, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_TIMELINE, kBD_SOCIAL_SHARE_PLATFORM_EMAIL]];
+    [BDSocialShareSDK_Internal registerApiKey:kSocialShareAppKey supportSharePlatforms:@[kBD_SOCIAL_SHARE_PLATFORM_SINAWEIBO, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_SESSION, kBD_SOCIAL_SHARE_PLATFORM_WEIXIN_TIMELINE]];
     
     [BDSocialShareSDK_Internal registerWXApp:kWeiXinAppKey];
 }
