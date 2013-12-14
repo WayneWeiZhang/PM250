@@ -45,7 +45,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"JBBarChartViewControllerSegue"]) {
+    if ([segue.identifier isEqualToString:@"DetailChartViewControllerSegue"]) {
 //        JBBarChartViewController *chartViewController = segue.destinationViewController;
         //TODO: SET chartViewController DATA
     }

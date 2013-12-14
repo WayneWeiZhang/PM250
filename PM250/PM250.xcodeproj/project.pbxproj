@@ -28,14 +28,15 @@
 		139C34BA185C032D00DB2849 /* AHBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 139C34B9185C032D00DB2849 /* AHBaseRequest.m */; };
 		13EDCAEF185C0921000C0149 /* AHCityListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAEE185C0921000C0149 /* AHCityListRequest.m */; };
 		13EDCAF2185C0D62000C0149 /* CityListRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAF1185C0D62000C0149 /* CityListRequestModel.m */; };
-		620CF6A118600570005B8485 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 620CF69F18600570005B8485 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		620CF6A418601068005B8485 /* AHRegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 620CF6A318601068005B8485 /* AHRegisterRequest.m */; };
 		13EDCAF5185C1170000C0149 /* CurrentCityRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAF4185C1170000C0149 /* CurrentCityRequestModel.m */; };
 		13EDCAFB185C12EE000C0149 /* AHCurrentCityRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAFA185C12EE000C0149 /* AHCurrentCityRequest.m */; };
 		13EDCAFE185C1626000C0149 /* HistoryRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAFD185C1626000C0149 /* HistoryRequestModel.m */; };
 		13EDCB01185C1675000C0149 /* AHHistoryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCB00185C1675000C0149 /* AHHistoryRequest.m */; };
 		13EDCB04185C175A000C0149 /* AHBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCB03185C175A000C0149 /* AHBaseModel.m */; };
+		620CF6A118600570005B8485 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 620CF69F18600570005B8485 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		620CF6A418601068005B8485 /* AHRegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 620CF6A318601068005B8485 /* AHRegisterRequest.m */; };
 		7284046D885B4B75A25D2FDA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4812EEBBE7B54B4B9D8D5A0C /* libPods.a */; };
+		8E4DDEFF185C3626004B3313 /* DetailChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4DDEFE185C3626004B3313 /* DetailChartViewController.m */; };
 		8E9620CB185AB4A40059B468 /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9620CA185AB4A40059B468 /* ChartViewController.m */; };
 		8E9620E6185ADB220059B468 /* JBChartTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9620DD185ADB220059B468 /* JBChartTableCell.m */; };
 		8E9620E7185ADB220059B468 /* JBBarChartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9620E0185ADB220059B468 /* JBBarChartFooterView.m */; };
@@ -173,6 +174,8 @@
 		620CF6A018600570005B8485 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		620CF6A218601068005B8485 /* AHRegisterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHRegisterRequest.h; sourceTree = "<group>"; };
 		620CF6A318601068005B8485 /* AHRegisterRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHRegisterRequest.m; sourceTree = "<group>"; };
+		8E4DDEFD185C3626004B3313 /* DetailChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailChartViewController.h; sourceTree = "<group>"; };
+		8E4DDEFE185C3626004B3313 /* DetailChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailChartViewController.m; sourceTree = "<group>"; };
 		8E9620C9185AB4A40059B468 /* ChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartViewController.h; sourceTree = "<group>"; };
 		8E9620CA185AB4A40059B468 /* ChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartViewController.m; sourceTree = "<group>"; };
 		8E9620DC185ADB220059B468 /* JBChartTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartTableCell.h; sourceTree = "<group>"; };
@@ -591,6 +594,8 @@
 				8ED9363418599BE9005DA655 /* Main.storyboard */,
 				8ED9363718599BE9005DA655 /* ViewController.h */,
 				8ED9363818599BE9005DA655 /* ViewController.m */,
+				8E4DDEFD185C3626004B3313 /* DetailChartViewController.h */,
+				8E4DDEFE185C3626004B3313 /* DetailChartViewController.m */,
 				8E9620C9185AB4A40059B468 /* ChartViewController.h */,
 				8E9620CA185AB4A40059B468 /* ChartViewController.m */,
 				8ED9363A18599BE9005DA655 /* Images.xcassets */,
@@ -788,6 +793,7 @@
 				8E9620ED185ADB410059B468 /* JBChartInformationView.m in Sources */,
 				8E962107185ADB8B0059B468 /* JBBaseViewController.m in Sources */,
 				8E962108185ADB8B0059B468 /* JBBarChartViewController.m in Sources */,
+				8E4DDEFF185C3626004B3313 /* DetailChartViewController.m in Sources */,
 				139C34B3185BEA2E00DB2849 /* MapLocationModel.m in Sources */,
 				13EDCB01185C1675000C0149 /* AHHistoryRequest.m in Sources */,
 				139C34A9185B2B9100DB2849 /* MapBaseViewController.m in Sources */,
