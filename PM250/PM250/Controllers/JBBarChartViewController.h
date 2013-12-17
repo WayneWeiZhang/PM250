@@ -9,5 +9,7 @@
 #import "JBBaseViewController.h"
 
 @interface JBBarChartViewController : JBBaseViewController
-
+@property (nonatomic, copy) NSArray *chartData;
+@property (nonatomic, copy) NSArray *monthlySymbols;
+- (void)reloadData;
 @end
