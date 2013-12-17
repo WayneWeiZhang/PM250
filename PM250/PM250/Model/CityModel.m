@@ -10,4 +10,18 @@
 
 @implementation CityModel
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary
+{
+    self = [super init];
+    if (self)
+    {
+        self.name = [dictionary objectForKey:@"name"];
+        self.ename = [dictionary objectForKey:@"ename"];
+        self.lat = [dictionary objectForKey:@"lat"];
+        self.lng = [dictionary objectForKey:@"lng"];
+    }
+    
+    return self;
+}
+
 @end

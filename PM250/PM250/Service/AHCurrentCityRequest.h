@@ -1,5 +1,5 @@
 //
-//  AHCityListRequest.h
+//  AHCurrentCityRequest.h
 //  PM250
 //
 //  Created by Richie Liu on 13-12-14.
@@ -7,8 +7,8 @@
 //
 
 #import "AHBaseRequest.h"
-#import "CityListRequestModel.h"
+#import "CurrentCityRequestModel.h"
 
-@interface AHCityListRequest : AHBaseRequest
+@interface AHCurrentCityRequest : AHBaseRequest
 
 @end

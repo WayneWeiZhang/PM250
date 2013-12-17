@@ -10,9 +10,13 @@
 #import <BaiduSocialShare_Internal/BDSocialShareSDK_Internal.h>
 #import "CommonConfig.h"
 #import "BMapKit.h"
+<<<<<<< HEAD
 #import "AHCityListRequest.h"
 #import "GTMBase64.h"
 #import "AHRegisterRequest.h"
+=======
+#import "AHHistoryRequest.h"
+>>>>>>> 5123c9f67ba7c4c427709284cd3c56372dc818a0
 
 @interface AppDelegate () <BMKGeneralDelegate>
 
@@ -25,8 +29,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //  test
-    AHCityListRequest *request = [[AHCityListRequest alloc] init];
-    [request request:nil method:@"GET" cachePolicy:NO success:^(id responseObject) {
+    AHHistoryRequest *request = [[AHHistoryRequest alloc] init];
+    [request request:@{KAHServiceParamCity : @"北京"} method:@"GET" cachePolicy:NO success:^(id responseObject) {
         
     } failure:^(NSError *error) {
         

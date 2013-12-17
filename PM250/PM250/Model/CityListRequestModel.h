@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AHBaseModel.h"
+#import "CityModel.h"
 
-@interface CityListRequestModel : NSObject
+@interface CityListRequestModel : AHBaseModel
 
 @property (strong, nonatomic) NSArray *cityList;
 

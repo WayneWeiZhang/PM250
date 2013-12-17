@@ -1,20 +1,20 @@
 //
-//  AHCityListRequest.m
+//  AHHistoryRequest.m
 //  PM250
 //
 //  Created by Richie Liu on 13-12-14.
 //  Copyright (c) 2013年 CaoNiMei. All rights reserved.
 //
 
-#import "AHCityListRequest.h"
+#import "AHHistoryRequest.h"
 
-@implementation AHCityListRequest
+@implementation AHHistoryRequest
 
 - (id)ParseData:(id)responseObject
 {
     NSData *data = (NSData *)responseObject;
     NSError *error = nil;
-    NSArray *cityArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    NSArray *historyArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     if (error)
     {
         NSLog(@"service error in %@: %@", NSStringFromClass([self class]), error);
@@ -22,21 +22,21 @@
     }
     
     NSMutableArray *resultArray = [NSMutableArray array];
-    for (NSDictionary *dic in cityArray)
+    for (NSDictionary *dic in historyArray)
     {
-        CityModel *model = [[CityModel alloc] initWithDictionary:dic];
+        CurrentCityRequestModel *model = [[CurrentCityRequestModel alloc] initWithDictionary:dic];
         [resultArray addObject:model];
     }
     
-    CityListRequestModel *model = [[CityListRequestModel alloc] init];
-    model.cityList = resultArray;
+    HistoryRequestModel *model = [[HistoryRequestModel alloc] init];
+    model.historyList = resultArray;
     
     return model;
 }
 
 - (NSString *)setRoute
 {
-    return [NSString stringWithFormat:@"%@", KAHServiceUrlCityList];
+    return [NSString stringWithFormat:@"%@", KAHServiceUrlHistory];
 }
 
 @end

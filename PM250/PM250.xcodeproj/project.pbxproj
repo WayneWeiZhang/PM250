@@ -28,8 +28,16 @@
 		139C34BA185C032D00DB2849 /* AHBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 139C34B9185C032D00DB2849 /* AHBaseRequest.m */; };
 		13EDCAEF185C0921000C0149 /* AHCityListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAEE185C0921000C0149 /* AHCityListRequest.m */; };
 		13EDCAF2185C0D62000C0149 /* CityListRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAF1185C0D62000C0149 /* CityListRequestModel.m */; };
+<<<<<<< HEAD
 		620CF6A118600570005B8485 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 620CF69F18600570005B8485 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		620CF6A418601068005B8485 /* AHRegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 620CF6A318601068005B8485 /* AHRegisterRequest.m */; };
+=======
+		13EDCAF5185C1170000C0149 /* CurrentCityRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAF4185C1170000C0149 /* CurrentCityRequestModel.m */; };
+		13EDCAFB185C12EE000C0149 /* AHCurrentCityRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAFA185C12EE000C0149 /* AHCurrentCityRequest.m */; };
+		13EDCAFE185C1626000C0149 /* HistoryRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAFD185C1626000C0149 /* HistoryRequestModel.m */; };
+		13EDCB01185C1675000C0149 /* AHHistoryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCB00185C1675000C0149 /* AHHistoryRequest.m */; };
+		13EDCB04185C175A000C0149 /* AHBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCB03185C175A000C0149 /* AHBaseModel.m */; };
+>>>>>>> 5123c9f67ba7c4c427709284cd3c56372dc818a0
 		7284046D885B4B75A25D2FDA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4812EEBBE7B54B4B9D8D5A0C /* libPods.a */; };
 		8E9620CB185AB4A40059B468 /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9620CA185AB4A40059B468 /* ChartViewController.m */; };
 		8E9620E6185ADB220059B468 /* JBChartTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9620DD185ADB220059B468 /* JBChartTableCell.m */; };
@@ -150,6 +158,16 @@
 		13EDCAEE185C0921000C0149 /* AHCityListRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHCityListRequest.m; sourceTree = "<group>"; };
 		13EDCAF0185C0D62000C0149 /* CityListRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityListRequestModel.h; sourceTree = "<group>"; };
 		13EDCAF1185C0D62000C0149 /* CityListRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityListRequestModel.m; sourceTree = "<group>"; };
+		13EDCAF3185C1170000C0149 /* CurrentCityRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentCityRequestModel.h; sourceTree = "<group>"; };
+		13EDCAF4185C1170000C0149 /* CurrentCityRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentCityRequestModel.m; sourceTree = "<group>"; };
+		13EDCAF9185C12EE000C0149 /* AHCurrentCityRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHCurrentCityRequest.h; sourceTree = "<group>"; };
+		13EDCAFA185C12EE000C0149 /* AHCurrentCityRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHCurrentCityRequest.m; sourceTree = "<group>"; };
+		13EDCAFC185C1626000C0149 /* HistoryRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryRequestModel.h; sourceTree = "<group>"; };
+		13EDCAFD185C1626000C0149 /* HistoryRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryRequestModel.m; sourceTree = "<group>"; };
+		13EDCAFF185C1675000C0149 /* AHHistoryRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHHistoryRequest.h; sourceTree = "<group>"; };
+		13EDCB00185C1675000C0149 /* AHHistoryRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHHistoryRequest.m; sourceTree = "<group>"; };
+		13EDCB02185C175A000C0149 /* AHBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AHBaseModel.h; sourceTree = "<group>"; };
+		13EDCB03185C175A000C0149 /* AHBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AHBaseModel.m; sourceTree = "<group>"; };
 		3F2F90F0B2424E5C8D1D00B6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		4812EEBBE7B54B4B9D8D5A0C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		620CF69E18600570005B8485 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
@@ -403,6 +421,12 @@
 				139C34B5185C014400DB2849 /* CityModel.m */,
 				13EDCAF0185C0D62000C0149 /* CityListRequestModel.h */,
 				13EDCAF1185C0D62000C0149 /* CityListRequestModel.m */,
+				13EDCAF3185C1170000C0149 /* CurrentCityRequestModel.h */,
+				13EDCAF4185C1170000C0149 /* CurrentCityRequestModel.m */,
+				13EDCAFC185C1626000C0149 /* HistoryRequestModel.h */,
+				13EDCAFD185C1626000C0149 /* HistoryRequestModel.m */,
+				13EDCB02185C175A000C0149 /* AHBaseModel.h */,
+				13EDCB03185C175A000C0149 /* AHBaseModel.m */,
 			);
 			name = Model;
 			path = PM250/Model;
@@ -415,8 +439,15 @@
 				139C34B9185C032D00DB2849 /* AHBaseRequest.m */,
 				13EDCAED185C0921000C0149 /* AHCityListRequest.h */,
 				13EDCAEE185C0921000C0149 /* AHCityListRequest.m */,
+<<<<<<< HEAD
 				620CF6A218601068005B8485 /* AHRegisterRequest.h */,
 				620CF6A318601068005B8485 /* AHRegisterRequest.m */,
+=======
+				13EDCAF9185C12EE000C0149 /* AHCurrentCityRequest.h */,
+				13EDCAFA185C12EE000C0149 /* AHCurrentCityRequest.m */,
+				13EDCAFF185C1675000C0149 /* AHHistoryRequest.h */,
+				13EDCB00185C1675000C0149 /* AHHistoryRequest.m */,
+>>>>>>> 5123c9f67ba7c4c427709284cd3c56372dc818a0
 			);
 			name = Service;
 			path = PM250/Service;
@@ -736,16 +767,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				13EDCAF2185C0D62000C0149 /* CityListRequestModel.m in Sources */,
+				13EDCAF5185C1170000C0149 /* CurrentCityRequestModel.m in Sources */,
 				8ED9363918599BE9005DA655 /* ViewController.m in Sources */,
 				8E9620CB185AB4A40059B468 /* ChartViewController.m in Sources */,
 				8E962106185ADB8B0059B468 /* JBBaseTableViewController.m in Sources */,
 				8E96210A185ADB8B0059B468 /* JBLineChartViewController.m in Sources */,
 				139C34B6185C014400DB2849 /* CityModel.m in Sources */,
+				13EDCAFB185C12EE000C0149 /* AHCurrentCityRequest.m in Sources */,
 				139C346E185B1C3300DB2849 /* LocationHelper.m in Sources */,
 				139C34AF185B35D600DB2849 /* MapFriendsViewController.m in Sources */,
 				8ED9363318599BE9005DA655 /* AppDelegate.m in Sources */,
 				139C34AC185B2D6300DB2849 /* MapEscapeViewController.m in Sources */,
+				13EDCAFE185C1626000C0149 /* HistoryRequestModel.m in Sources */,
 				139C34BA185C032D00DB2849 /* AHBaseRequest.m in Sources */,
+				13EDCB04185C175A000C0149 /* AHBaseModel.m in Sources */,
 				8E9620E8185ADB220059B468 /* JBLineChartFooterView.m in Sources */,
 				620CF6A118600570005B8485 /* GTMBase64.m in Sources */,
 				8E962105185ADB8B0059B468 /* JBBaseNavigationController.m in Sources */,
@@ -758,6 +793,7 @@
 				8E962107185ADB8B0059B468 /* JBBaseViewController.m in Sources */,
 				8E962108185ADB8B0059B468 /* JBBarChartViewController.m in Sources */,
 				139C34B3185BEA2E00DB2849 /* MapLocationModel.m in Sources */,
+				13EDCB01185C1675000C0149 /* AHHistoryRequest.m in Sources */,
 				139C34A9185B2B9100DB2849 /* MapBaseViewController.m in Sources */,
 				8E962109185ADB8B0059B468 /* JBChartListViewController.m in Sources */,
 				620CF6A418601068005B8485 /* AHRegisterRequest.m in Sources */,
