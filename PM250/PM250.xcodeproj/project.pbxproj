@@ -28,16 +28,13 @@
 		139C34BA185C032D00DB2849 /* AHBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 139C34B9185C032D00DB2849 /* AHBaseRequest.m */; };
 		13EDCAEF185C0921000C0149 /* AHCityListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAEE185C0921000C0149 /* AHCityListRequest.m */; };
 		13EDCAF2185C0D62000C0149 /* CityListRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAF1185C0D62000C0149 /* CityListRequestModel.m */; };
-<<<<<<< HEAD
 		620CF6A118600570005B8485 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 620CF69F18600570005B8485 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		620CF6A418601068005B8485 /* AHRegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 620CF6A318601068005B8485 /* AHRegisterRequest.m */; };
-=======
 		13EDCAF5185C1170000C0149 /* CurrentCityRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAF4185C1170000C0149 /* CurrentCityRequestModel.m */; };
 		13EDCAFB185C12EE000C0149 /* AHCurrentCityRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAFA185C12EE000C0149 /* AHCurrentCityRequest.m */; };
 		13EDCAFE185C1626000C0149 /* HistoryRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCAFD185C1626000C0149 /* HistoryRequestModel.m */; };
 		13EDCB01185C1675000C0149 /* AHHistoryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCB00185C1675000C0149 /* AHHistoryRequest.m */; };
 		13EDCB04185C175A000C0149 /* AHBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EDCB03185C175A000C0149 /* AHBaseModel.m */; };
->>>>>>> 5123c9f67ba7c4c427709284cd3c56372dc818a0
 		7284046D885B4B75A25D2FDA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4812EEBBE7B54B4B9D8D5A0C /* libPods.a */; };
 		8E9620CB185AB4A40059B468 /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9620CA185AB4A40059B468 /* ChartViewController.m */; };
 		8E9620E6185ADB220059B468 /* JBChartTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9620DD185ADB220059B468 /* JBChartTableCell.m */; };
@@ -439,15 +436,12 @@
 				139C34B9185C032D00DB2849 /* AHBaseRequest.m */,
 				13EDCAED185C0921000C0149 /* AHCityListRequest.h */,
 				13EDCAEE185C0921000C0149 /* AHCityListRequest.m */,
-<<<<<<< HEAD
 				620CF6A218601068005B8485 /* AHRegisterRequest.h */,
 				620CF6A318601068005B8485 /* AHRegisterRequest.m */,
-=======
 				13EDCAF9185C12EE000C0149 /* AHCurrentCityRequest.h */,
 				13EDCAFA185C12EE000C0149 /* AHCurrentCityRequest.m */,
 				13EDCAFF185C1675000C0149 /* AHHistoryRequest.h */,
 				13EDCB00185C1675000C0149 /* AHHistoryRequest.m */,
->>>>>>> 5123c9f67ba7c4c427709284cd3c56372dc818a0
 			);
 			name = Service;
 			path = PM250/Service;
