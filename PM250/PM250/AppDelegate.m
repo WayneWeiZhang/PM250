@@ -11,6 +11,8 @@
 #import "CommonConfig.h"
 #import "BMapKit.h"
 #import "AHCityListRequest.h"
+#import "GTMBase64.h"
+#import "AHRegisterRequest.h"
 
 @interface AppDelegate () <BMKGeneralDelegate>
 
@@ -33,6 +35,7 @@
     // Override point for customization after application launch.
     [self initShareCenter];
     [self initMapManager];
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];
     
     return YES;
 }
@@ -83,6 +86,20 @@
     if (!ret) {
 		NSLog(@"manager start failed!");
 	}
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+    NSString* token = [GTMBase64 stringByEncodingData:deviceToken];
+    AHRegisterRequest* reg = [[AHRegisterRequest alloc] init];
+    [reg request:@{@"token": token} method:@"GET" cachePolicy:NO success:^(id responseObject) {
+        NSLog(@"OK");
+    } failure:^(NSError *error) {
+        NSLog(@"BAD");
+    }];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
+    NSLog(@"register error");
 }
 
 @end
